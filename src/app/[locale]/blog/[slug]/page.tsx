@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { Mdx } from '@/components/mdx';
 import { allBlogs } from 'contentlayer/generated';
 import Balancer from 'react-wrap-balancer';
+import ViewCounter from '../ViewCounter';
 
 export async function generateStaticParams() {
   return allBlogs.map((post) => ({
@@ -29,6 +30,7 @@ export default async function Blog({ params }: { params: any }) {
           {post.publishedAt}
         </div>
         <div className="mx-2 h-[0.2em] bg-neutral-50 dark:bg-neutral-800" />
+        <ViewCounter slug={post.slug} trackView />
       </div>
       <Mdx code={post.body.code} />
     </section>

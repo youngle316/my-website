@@ -2,6 +2,7 @@
 
 import { allBlogs } from 'contentlayer/generated';
 import { Link } from 'next-intl';
+import ViewCounter from './ViewCounter';
 
 function Blog() {
   return (
@@ -24,6 +25,7 @@ function Blog() {
               <div>{post.title}</div>
               <div>{post.publishedAt}</div>
             </div>
+            <ViewCounter slug={post.slug} trackView={false} />
           </Link>
         ))}
     </div>
