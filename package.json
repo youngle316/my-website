@@ -11,6 +11,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "@notionhq/client": "^2.2.3",
+    "@supabase/supabase-js": "^2.15.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
