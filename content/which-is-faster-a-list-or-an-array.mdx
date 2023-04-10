@@ -1,0 +1,169 @@
+---
+title: 'Which is faster, a list or an array'
+publishedAt: '2022-02-18'
+summary: 'Comparing the speed of implementing a queue with a linked table and an array'
+---
+
+> **队列(queue)**，一种数据结构，是一个**先进先出**的线性表。在队尾入队，在队头出队。
+
+由于 `JavaScript` 中没有队列，所以需要使用链表和数组来模拟。虽然这两个都可以实现队列，但是性能是不一样的。下面用代码来实现比较一下。
+
+### 使用链表实现队列
+
+```tsx
+interface IListNode {
+  value: number;
+  next: IListNode | null;
+}
+export class MyQueue {
+  private head: IListNode | null = null;
+
+  private tail: IListNode | null = null;
+
+  private len: number = 0;
+
+  // 入队
+  add(n: number) {
+    const newNode: IListNode = {
+      value: n,
+      next: null
+    };
+    // 处理 head
+    if (this.head === null) {
+      this.head = newNode;
+    }
+    // 处理 tail
+    const tailNode = this.tail;
+    if (tailNode) {
+      tailNode.next = newNode;
+    }
+
+    // 记录长度
+    this.len++;
+  }
+
+  // 出队
+  delete(): number | null {
+    const headNode = this.head;
+    if (headNode === null) return null;
+    if (this.len === 0) return null;
+
+    const value = headNode.value;
+
+    this.head = headNode.next;
+    // 记录长度
+    this.len--;
+
+    return value;
+  }
+
+  // 获取长度
+  get length(): number {
+    return this.len;
+  }
+}
+```
+
+在实现队列时，需要注意的是，不可遍历获取链表长度，否则时间复杂度就是$O(n)$。
+
+<aside>
+✍️ 使用数组实现队列的时候，有两种方式，1. 使用数组的`API`直进行入队和出队的操作；2. 使用两个栈实现一个队列
+
+</aside>
+
+### 使用数组的 API
+
+- 入队使用 `push` 方法
+- 出队使用 `shift` 方法
+
+由于数组是连续内存，`shift`，`unshift`，`splice`这些`API`都会导致数组的所有元素都被处理一遍，时间复杂度都是$O(n)$。比较耗性能，不推荐使用这些`API`
+
+### 使用两个栈实现一个队列
+
+```tsx
+export class ArrayQueue {
+  private stackIn: number[] = [];
+
+  private stackOut: number[] = [];
+
+  appendTail(value: number): void {
+    this.stackIn.push(value);
+  }
+
+  deleteHead(): number {
+    let res: number = -1;
+    if (!this.stackOut.length) {
+      if (!this.stackIn.length) {
+        res = -1;
+      }
+    }
+    while (this.stackIn.length) {
+      const n = this.stackIn.pop();
+      if (n !== undefined) this.stackOut.push(n);
+    }
+    const outNumber = this.stackOut.pop();
+    if (outNumber !== undefined) {
+      res = outNumber;
+    }
+
+    // 将 stackOut 再赋给 stackIn
+    while (this.stackOut.length) {
+      const n = this.stackOut.pop();
+      if (n !== undefined) {
+        this.stackIn.push(n);
+      }
+    }
+    return res;
+  }
+
+  get length(): number {
+    return this.stackIn.length;
+  }
+}
+```
+
+### 性能测试
+
+可以使用 `console.time`和`console.timeEnd`来获取中间代码的运行时间
+
+```tsx
+// 链表实现队列
+const newArrayQueue = new MyQueue();
+console.time('queueWithList');
+for (let i = 0; i < 10 * 1000; i++) {
+  newArrayQueue.add(i);
+}
+for (let i = 0; i < 10 * 1000; i++) {
+  newArrayQueue.delete();
+}
+console.timeEnd('queueWithList');
+
+// 两个栈实现队列
+const newArrayQueue = new ArrayQueue();
+console.time('queueWithDoubleArray');
+for (let i = 0; i < 10 * 1000; i++) {
+  newArrayQueue.appendTail(i);
+}
+for (let i = 0; i < 10 * 1000; i++) {
+  newArrayQueue.deleteHead();
+}
+console.timeEnd('queueWithDoubleArray');
+
+// 数组API实现队列
+console.time('queueWithArray');
+let arr = [];
+for (let i = 0; i < 10 * 10000; i++) {
+  arr.push(i);
+}
+for (let i = 0; i < 10 * 10000; i++) {
+  arr.shift();
+}
+console.timeEnd('queueWithArray');
+```
+
+![compare](https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/202304101057970.png)
+
+可以从打印的结果上看到，
+
+- 使用链表实现的队列速度最快
+- 使用`API`实现的队列速度最慢
