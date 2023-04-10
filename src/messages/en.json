@@ -1,5 +1,12 @@
 {
   "home": {
-    "title": "Title"
+    "welcome": "Hi! There",
+    "paragraph1": "I am YoungLe，a front-end development engineer who loves programming and games as an afterthought"
+  },
+  "navbar": {
+    "home": "home",
+    "about": "about Me",
+    "blog": "blog",
+    "contact": "contact"
   }
 }

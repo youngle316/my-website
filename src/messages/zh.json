@@ -1,5 +1,12 @@
 {
   "home": {
-    "title": "标题"
+    "welcome": "大家好",
+    "paragraph1": "我是 <b>YoungLe</b>， 一名后知后觉热爱编程和游戏的前端开发工程师。同时也热衷于捣鼓各种新鲜的工具和技术。"
+  },
+  "navbar": {
+    "home": "主页",
+    "about": "关于Me",
+    "blog": "博客",
+    "contact": "联系我"
   }
 }
