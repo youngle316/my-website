@@ -1,4 +1,4 @@
-import { createIntlMiddleware } from 'next-intl/server';
+import createIntlMiddleware from 'next-intl/middleware';
 
 import { i18n } from '@/i18n/i18n';
 

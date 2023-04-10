@@ -11,6 +11,13 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Ubuntu', 'sans-serif']
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch'
+          }
+        }
       }
     }
   },

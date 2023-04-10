@@ -6,10 +6,10 @@ import {
   BookOpenIcon,
   InboxIcon
 } from '@heroicons/react/24/outline';
-import Link from 'next/link';
+import { Link } from 'next-intl';
 import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
-import { useTranslations, useLocale } from 'next-intl';
+import { usePathname } from 'next-intl/client';
+import { useTranslations } from 'next-intl';
 
 const links = [
   { href: '/', label: 'home', icon: HomeModernIcon },
@@ -21,21 +21,12 @@ const links = [
 function Nav() {
   const t = useTranslations('navbar');
 
-  const locale = useLocale();
-
   const pathname = usePathname();
-
-  const replacePathname = (pathname: string) => {
-    if (pathname === `/${locale}`) {
-      return '/';
-    }
-    return pathname.replace(`/${locale}`, '');
-  };
 
   return (
     <nav className="flex text-sm font-bold md:flex-col">
       {links.map(({ href, label, icon: Icon }) => {
-        const isActive = replacePathname(pathname) === href;
+        const isActive = pathname === href;
 
         return (
           <div className="flex" key={label}>
@@ -43,7 +34,7 @@ function Nav() {
               className={`text-stone-400 hover:text-stone-800 ${
                 isActive ? 'text-stone-800' : ''
               }`}
-              href={href === '/' ? `/${locale}` : `/${locale}${href}`}
+              href={href}
             >
               <span className="relative flex items-center justify-center gap-1 p-2">
                 <Icon className="h-4 w-4" />
