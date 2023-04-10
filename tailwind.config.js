@@ -8,7 +8,11 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ['Ubuntu', 'sans-serif']
+      }
+    }
   },
   plugins: [require('@tailwindcss/typography')]
 };
