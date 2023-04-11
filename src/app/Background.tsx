@@ -1,29 +1,29 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const GRID_STEPS = [
   {
     min: -1,
     mid: 0.15,
-    size: 64,
+    size: 64
   },
   {
     min: 0.05,
     mid: 0.375,
-    size: 16,
+    size: 16
   },
   {
     min: 0.15,
     mid: 1,
-    size: 4,
+    size: 4
   },
   {
     min: 0.7,
     mid: 2.5,
-    size: 1,
-  },
-]
+    size: 1
+  }
+];
 
 /**
  * Modulate a value between two ranges.
@@ -38,23 +38,23 @@ export function modulate(
   rangeB: number[],
   clamp = false
 ): number {
-  const [fromLow, fromHigh] = rangeA
-  const [v0, v1] = rangeB
-  const result = v0 + ((value - fromLow) / (fromHigh - fromLow)) * (v1 - v0)
+  const [fromLow, fromHigh] = rangeA;
+  const [v0, v1] = rangeB;
+  const result = v0 + ((value - fromLow) / (fromHigh - fromLow)) * (v1 - v0);
 
   return clamp
     ? v0 < v1
       ? Math.max(Math.min(result, v1), v0)
       : Math.max(Math.min(result, v0), v1)
-    : result
+    : result;
 }
 
 function Grids({
   grid,
-  camera = { position: { x: 0, y: 0 }, zoom: 1 },
+  camera = { position: { x: 0, y: 0 }, zoom: 1 }
 }: {
-  grid: number
-  camera?: { position: { x: number; y: number }; zoom: number }
+  grid: number;
+  camera?: { position: { x: number; y: number }; zoom: number };
 }) {
   return (
     <svg
@@ -65,13 +65,13 @@ function Grids({
     >
       <defs>
         {GRID_STEPS.map(({ min, mid, size }, i) => {
-          const s = size * grid * camera.zoom
-          const xo = camera.position.x * camera.zoom
-          const yo = camera.position.y * camera.zoom
-          const gxo = xo > 0 ? xo % s : s + (xo % s)
-          const gyo = yo > 0 ? yo % s : s + (yo % s)
+          const s = size * grid * camera.zoom;
+          const xo = camera.position.x * camera.zoom;
+          const yo = camera.position.y * camera.zoom;
+          const gxo = xo > 0 ? xo % s : s + (xo % s);
+          const gyo = yo > 0 ? yo % s : s + (yo % s);
           const opacity =
-            camera.zoom < mid ? modulate(camera.zoom, [min, mid], [0, 1]) : 1
+            camera.zoom < mid ? modulate(camera.zoom, [min, mid], [0, 1]) : 1;
 
           return (
             <pattern
@@ -91,7 +91,7 @@ function Grids({
                 className="bg-transparent fill-stone-300 dark:fill-stone-700"
               />
             </pattern>
-          )
+          );
         })}
       </defs>
       {GRID_STEPS.map((_, i) => (
@@ -103,7 +103,7 @@ function Grids({
         />
       ))}
     </svg>
-  )
+  );
 }
 
 export function Background() {
@@ -125,9 +125,6 @@ export function Background() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: 'spring' }}
       />
-
-      <div className="mask-t pointer-events-none fixed inset-x-0 top-0 z-30 h-[88px] w-full select-none backdrop-blur-[1px]" />
-      <div className="mask-b pointer-events-none fixed inset-x-0 bottom-0 z-30 h-[80px] w-full select-none backdrop-blur-[1px]" />
     </>
-  )
+  );
 }

@@ -6,6 +6,7 @@ import { getMessages } from '@/i18n/i18n.server';
 import IntlProvider from '@/provider/IntlProvider';
 import { Background } from '../Background';
 import Sidebar from '../Sidebar';
+import Footer from '../Footer';
 
 export const metadata = {
   title: 'YoungLe',
@@ -41,6 +42,7 @@ export default async function RootLayout({
               <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl">
                 {children}
               </article>
+              <Footer />
             </section>
           </main>
         </IntlProvider>
