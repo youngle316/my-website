@@ -4,6 +4,7 @@ import Logo from '@/components/Logo';
 import { Link } from 'next-intl';
 import Nav from './Nav';
 import Social from './Social';
+import LocaleSwitcher from './LocaleSwitcher';
 
 function Sidebar() {
   return (
@@ -15,6 +16,7 @@ function Sidebar() {
         <Nav />
         <Social />
         <div className="h-px rounded-xl bg-stone-200 dark:bg-stone-700" />
+        <LocaleSwitcher />
       </div>
     </aside>
   );
