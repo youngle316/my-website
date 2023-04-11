@@ -8,6 +8,7 @@ import { Background } from '../Background';
 import Sidebar from '../Sidebar';
 import Footer from '../Footer';
 import ThemeProvider from '@/provider/ThemeProvider';
+import Analytic from '../Analytics';
 
 export const metadata = {
   title: 'YoungLe',
@@ -37,6 +38,7 @@ export default async function RootLayout({
       <body className="bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
         <IntlProvider locale={params.locale} messages={messages}>
           <ThemeProvider>
+            <Analytic />
             <Background />
             <main className="relative mx-2 flex min-h-screen max-w-4xl flex-col pt-12 font-sans md:mx-4 md:mt-0 md:flex-row md:pt-20 lg:mx-auto lg:pt-28">
               <Sidebar />
