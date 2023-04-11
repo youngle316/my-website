@@ -5,6 +5,7 @@ import { Link } from 'next-intl';
 import Nav from './Nav';
 import Social from './Social';
 import LocaleSwitcher from './LocaleSwitcher';
+import ToggleTheme from './ToggleTheme';
 
 function Sidebar() {
   return (
@@ -17,6 +18,7 @@ function Sidebar() {
         <Social />
         <div className="h-px rounded-xl bg-stone-200 dark:bg-stone-700" />
         <LocaleSwitcher />
+        <ToggleTheme />
       </div>
     </aside>
   );

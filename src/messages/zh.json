@@ -24,7 +24,9 @@
     "home": "主页",
     "about": "关于Me",
     "blog": "博客",
-    "contact": "联系我"
+    "contact": "联系我",
+    "dark": "深色",
+    "light": "浅色"
   },
   "blog": {
     "title": "博客",

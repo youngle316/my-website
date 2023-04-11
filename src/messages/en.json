@@ -24,7 +24,9 @@
     "home": "home",
     "about": "about Me",
     "blog": "blog",
-    "contact": "contact"
+    "contact": "contact",
+    "dark": "Dark",
+    "light": "Light"
   },
   "blog": {
     "title": "Blog",
