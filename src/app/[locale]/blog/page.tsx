@@ -21,11 +21,11 @@ function Blog() {
             className="mb-4 flex flex-col"
             href={`/blog/${post.slug}`}
           >
-            <div className="flex w-full justify-between">
+            <div className="flex w-full flex-col">
               <div>{post.title}</div>
-              <div>{post.publishedAt}</div>
+              <div className="text-sm">{post.publishedAt}</div>
+              <ViewCounter slug={post.slug} trackView={false} />
             </div>
-            <ViewCounter slug={post.slug} trackView={false} />
           </Link>
         ))}
     </div>

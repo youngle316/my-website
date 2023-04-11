@@ -13,9 +13,9 @@ import { useTranslations } from 'next-intl';
 
 const links = [
   { href: '/', label: 'home', icon: HomeModernIcon },
-  { href: '/about', label: 'about', icon: TrophyIcon },
-  { href: '/blog', label: 'blog', icon: BookOpenIcon },
-  { href: '/contact', label: 'contact', icon: InboxIcon }
+  // { href: '/about', label: 'about', icon: TrophyIcon },
+  { href: '/blog', label: 'blog', icon: BookOpenIcon }
+  // { href: '/contact', label: 'contact', icon: InboxIcon }
 ];
 
 function Nav() {

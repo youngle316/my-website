@@ -18,6 +18,14 @@ module.exports = {
             maxWidth: '100ch',
             a: {
               textDecoration: 'none'
+            },
+            ul: {
+              '> li': {
+                '*': {
+                  marginTop: 0,
+                  marginBottom: 0
+                }
+              }
             }
           }
         }

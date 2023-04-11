@@ -3,6 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .innerLink {
+    @apply inline-flex items-center font-semibold text-blue-600 no-underline transition-colors 
+    hover:text-blue-800 hover:underline dark:text-sky-300 dark:hover:text-sky-500;
+  }
+}
+
 .frosted-noise::before {
   content: '';
   position: absolute;

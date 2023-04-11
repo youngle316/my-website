@@ -1,7 +1,7 @@
 'use client';
 
 import { AbstractIntlMessages, RichTranslationValues } from 'next-intl';
-import { NextIntlClientProvider } from 'next-intl/client';
+import { NextIntlClientProvider } from 'next-intl';
 import React from 'react';
 
 import { DefaultRichTextComponents } from '@/components/ui/RichText';
