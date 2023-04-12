@@ -1,7 +1,8 @@
 ---
-title: 'Summary of binary trees'
+title: '二叉树汇总'
 publishedAt: '2022-06-13'
 summary: 'Summary of binary trees'
+tag: 'algorithm'
 ---
 
 > 最近用两周的时间完成了 [代码随想录二叉树](https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%A7%8D%E7%B1%BB) 部分的内容
@@ -15,7 +16,7 @@ summary: 'Summary of binary trees'
 
 前端面试二叉树的话可能会考用递归法和迭代法实现中序遍历，因为中序遍历的迭代法稍微复杂一点，相比于其他两种。
 
-![Untitled.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667030908512/y-JOjyx1g.png align="left")
+![Untitled.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667030908512/y-JOjyx1g.png)
 
 那么这部分就使用递归法和迭代法实现中序遍历，LeetCode 的[**94**](https://leetcode.cn/problems/binary-tree-inorder-traversal/)题
 
@@ -114,13 +115,13 @@ var levelOrder = function (root) {
 
 ## 二叉树的属性
 
-![Untitled 1.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031081997/ZJCUenV7G.png align="left")
+![Untitled 1.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031081997/ZJCUenV7G.png)
 
 上图这九种类型的题，都是可以通过层序遍历或前中后序遍历来解决。
 
 如 [101.对称二叉树中](https://leetcode.cn/problems/symmetric-tree/)\*\* 就可以使用层序遍历将根节点的左右子树 push 到队列中，依次取出左右节点，判断节点的值是否相等，但是需要注意的是再往队列中 push 时，需要注意对应关系，先是左节点的左，再是右节点的右，否则会比较错误。
 
-![Untitled 2.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031039013/hmytCN5zH.png align="left")
+![Untitled 2.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031039013/hmytCN5zH.png)
 
 ```jsx
 var isSymmetric = function (root) {
@@ -154,7 +155,7 @@ var isSymmetric = function (root) {
 
 ## 二叉树的修改
 
-![Untitled 3.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031196100/c-rZesx1D.png align="left")
+![Untitled 3.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031196100/c-rZesx1D.png)
 
 这就到了经典题目，翻转二叉树
 
@@ -200,7 +201,7 @@ var invertTree = function (root) {
 
 ## 二叉搜索树的属性
 
-![Untitled 4.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031231828/IVEIU2FFB.png align="left")
+![Untitled 4.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031231828/IVEIU2FFB.png)
 
 二叉搜索树是一种特殊的二叉树，有如下特征
 
@@ -212,7 +213,7 @@ var invertTree = function (root) {
 
 这其中比较有难度的是[98.验证二叉搜索树题](https://leetcode.cn/problems/validate-binary-search-tree/)，不能单纯的比较左节点小于中间节点，右节点大于中间就完事了。这样就会有问题
 
-![Untitled 5.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031245732/IiZcC-QBv.png align="left")
+![Untitled 5.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031245732/IiZcC-QBv.png)
 
 有两种方法，**第一种是中序遍历，将元素保存在数组中，判断数组是否是递增的**。但是这样有些麻烦
 
@@ -243,7 +244,7 @@ var isValidBST = function (root) {
 
 ## 二叉树的祖先问题
 
-![Untitled 6.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031608573/7-U-o7fOv.png align="left")
+![Untitled 6.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667031608573/7-U-o7fOv.png)
 
 如[236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) 就可以使用递归来解决
 

@@ -1,7 +1,8 @@
 ---
-title: 'Four cases where the parent component gets the value of the child component'
+title: 'React 父组件获取子组件值的四种方式'
 publishedAt: '2022-04-12'
 summary: 'Four cases where the parent component gets the value of the child component'
+tag: 'JavaScript'
 ---
 
 > 子组件获取父组件的值都知道，最基本的就是通过 props 传值即可，同样也可以使用 context
@@ -13,7 +14,7 @@ summary: 'Four cases where the parent component gets the value of the child comp
 
 **使用 `ref`**
 
-```JavaScript
+```javascript
 import React, { Component } from 'react';
 import ChildClass from './ChildClass';
 class FatherClass extends Component {
@@ -37,7 +38,7 @@ class FatherClass extends Component {
 export default FatherClass;
 ```
 
-```JavaScript
+```javascript
 import React, { Component } from 'react';
 class ChildClass extends Component {
   constructor(props) {
@@ -61,13 +62,13 @@ export default ChildClass;
 
 打印的日志如下
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666232470263/_BM5geaxd.png align="left")
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666232470263/_BM5geaxd.png)
 
 这样就可以获取子组件的所有值
 
 ## 均为函数组件
 
-```JavaScript
+```javascript
 import React, { useRef } from 'react';
 import ChildFun from './ChildFun';
 function FatherFun() {
@@ -88,7 +89,7 @@ function FatherFun() {
 export default FatherFun;
 ```
 
-```JavaScript
+```javascript
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 function ChildFun(props, ref) {
   const [value, setValue] = useState('');
@@ -106,7 +107,7 @@ export default forwardRef(ChildFun);
 ```
 
 打印的日志如下
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666232588307/x6ekPhX_c.png align="left")
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666232588307/x6ekPhX_c.png)
 与类组件不同的是
 
 1. 父组件使用 `useRef` 创建 `ref`
@@ -117,7 +118,7 @@ export default forwardRef(ChildFun);
 
 这种方式很常见，只需将上面代码中 `FatherClass` 与 `ChildFun` 这两个组件组合即可
 
-```JavaScript
+```javascript
 import React, { Component } from 'react';
 import ChildFun from './ChildFun';
 class FatherClass extends Component {
@@ -144,7 +145,7 @@ class FatherClass extends Component {
 export default FatherClass;
 ```
 
-```JavaScript
+```javascript
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 function ChildFun(props, ref) {
   const [value, setValue] = useState('');
@@ -162,11 +163,11 @@ export default forwardRef(ChildFun);
 ```
 
 打印的日志如下
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666232829738/T9fRj4w8j.png align="left")
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666232829738/T9fRj4w8j.png)
 
 ## 父组件是函数组件，子组件是类组件
 
-```JavaScript
+```javascript
 import React, { useRef } from 'react';
 import ChildClass from './ChildClass';
 function FatherFun() {
@@ -187,7 +188,7 @@ function FatherFun() {
 export default FatherFun;
 ```
 
-```JavaScript
+```javascript
 import React, { Component } from 'react';
 class ChildClass extends Component {
   constructor(props) {
