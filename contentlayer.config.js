@@ -28,6 +28,10 @@ export const Blog = defineDocumentType(() => ({
     summary: {
       type: 'string',
       required: true
+    },
+    tag: {
+      type: 'string',
+      required: false
     }
   },
   computedFields

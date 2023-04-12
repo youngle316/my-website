@@ -1,7 +1,8 @@
 ---
-title: 'Closures and Closures in React'
+title: '闭包及闭包在 React 中问题'
 publishedAt: '2022-05-08'
 summary: 'Closures and Closures in React'
+tag: 'JavaScript'
 ---
 
 > 🤺 闭包就是可以读取其他函数内部变量的函数 — [阮一峰博客](https://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
@@ -10,7 +11,7 @@ summary: 'Closures and Closures in React'
 
 ### 输出的结果
 
-```JavaScript
+```javascript
 for (var i = 0; i < 10; i++) {
   setTimeout(() => {
     console.log(i);
@@ -25,7 +26,7 @@ for (var i = 0; i < 10; i++) {
 
 1.简单方法：将 `var` 改成 `let`
 
-```JavaScript
+```javascript
 // 简单。常用改法。将 var 改成 let
 for (let i = 0; i < 10; i++) {
   setTimeout(() => {
@@ -36,7 +37,7 @@ for (let i = 0; i < 10; i++) {
 
 2.就是使用 [IIFE](https://developer.mozilla.org/zh-CN/docs/Glossary/IIFE)
 
-```JavaScript
+```javascript
 // 使用 iife 实现块级作用域
 // _i 保存着 iife 对 i 的引用
 // 其实也就是闭包
@@ -51,7 +52,7 @@ for (var i = 0; i < 10; i++) {
 
 3.当然也可以使用 `setTimeout` 本身解决。接受第三个参数
 
-```JavaScript
+```javascript
 for (var i = 0; i < 10; i++) {
   setTimeout((_i) => {
       console.log(_i);
@@ -63,7 +64,7 @@ for (var i = 0; i < 10; i++) {
 
 ### `useState` 的闭包问题
 
-```JavaScript
+```javascript
 import React, { useState } from 'react';
 function FunComponent() {
   const [count, setCount] = useState(0);
@@ -100,7 +101,7 @@ export default FunComponent;
 
 ### 使用 `useRef` 来解决
 
-```JavaScript
+```javascript
 + import React, { useState, useRef } from 'react';
 function FunComponent() {
   const [count, setCount] = useState(0);
@@ -123,7 +124,7 @@ function FunComponent() {
 export default FunComponent;
 ```
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666358607350/LECb0gGCQ.png align="left")
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1666358607350/LECb0gGCQ.png)
 
 通过添加上面几行代码就可以实现打印 3，3，3 的功能。
 
@@ -131,7 +132,7 @@ export default FunComponent;
 
 ### 使用 `useEffect` 来优化
 
-```JavaScript
+```javascript
 import React, { useState, useRef, useEffect } from 'react';
 function FunComponent() {
   const [count, setCount] = useState(0);
@@ -162,7 +163,7 @@ export default FunComponent;
 
 ### 使用 `自定义hook` 获取最新的 `state`
 
-```JavaScript
+```javascript
 import { useEffect, useRef } from 'react';
 /**
  * 自定义Hook -- 获取最新的 state 的值
@@ -177,7 +178,7 @@ export const useGetCurrentValue = (value: any) => {
 };
 ```
 
-```JavaScript
+```javascript
 import React, { useState } from 'react';
 import { useGetCurrentValue } from '../../hook/useGetCurrentValue';
 function FunComponent() {
@@ -206,7 +207,7 @@ export default FunComponent;
 
 同样，在 `useEffect` 中也有这样的问题
 
-```JavaScript
+```javascript
 import React, { useEffect, useState } from 'react';
 function FunComponent() {
   const [count, setCount] = useState(0);
@@ -228,7 +229,7 @@ export default FunComponent;
 
 解决方法如下：
 
-```JavaScript
+```javascript
 import React, { useEffect, useState } from 'react';
 function FunComponent() {
   const [count, setCount] = useState(0);

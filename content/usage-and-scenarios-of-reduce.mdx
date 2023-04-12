@@ -1,7 +1,8 @@
 ---
-title: 'Usage and scenarios of Reduce'
+title: 'Reduce 的用法与使用场景'
 publishedAt: '2022-07-14'
 summary: 'Usage and scenarios of Reduce'
+tag: 'JavaScript'
 ---
 
 # Reduce 的用法与使用场景
@@ -19,7 +20,7 @@ MDN 官方给出的解释为
 > ，迭代器将从第二个元素开始执行（索引为 1 而不是 0）。
 > 简单的举个例子：如计算数组元素的总和
 
-```JavaScript
+```javascript
 const arr = [1, 2, 3, 4];
 const result = arr.reduce((preValue, curValue) => preValue + curValue);
 console.log('result', result);
@@ -27,7 +28,7 @@ console.log('result', result);
 
 ### 语法
 
-```JavaScript
+```javascript
 reduce(callbackFn, initialValue)
 ```
 
@@ -58,7 +59,7 @@ reduce 接收两个参数
 
 ### 无 initialValue
 
-```JavaScript
+```javascript
 const arr = [1, 2, 3, 4, 5]
 const result = arr.reduce((preValue, curValue, curIndex, array) => {
   console.log('value', preValue, curValue, curIndex, array)
@@ -67,11 +68,11 @@ const result = arr.reduce((preValue, curValue, curIndex, array) => {
 console.log('result', result)
 ```
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667632961676/07D1d7O82.png align="left")
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667632961676/07D1d7O82.png)
 
 ### 有 initialValue
 
-```JavaScript
+```javascript
 const arr = [1, 2, 3, 4, 5]
 const result = arr.reduce((preValue, curValue, curIndex, array) => {
   return preValue + curValue
@@ -79,7 +80,7 @@ const result = arr.reduce((preValue, curValue, curIndex, array) => {
 console.log('result', result)
 ```
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667633072044/Yt6Nunf9E.png align="left")
+![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1667633072044/Yt6Nunf9E.png)
 
 ## 使用场景
 
@@ -87,7 +88,7 @@ reduce 的使用场景很多，功能强大
 
 ### 数组求和
 
-```JavaScript
+```javascript
 const arr = [1, 2, 3, 4, 5]
 const result = arr.reduce((preValue, curValue, curIndex, array) => {
   return preValue + curValue
@@ -96,7 +97,7 @@ const result = arr.reduce((preValue, curValue, curIndex, array) => {
 
 ### 数组对象求和
 
-```JavaScript
+```javascript
 const arr = [{ x: 1 }, { x: 2 }, { x: 3 }, { x: 4 }, { x: 5 }]
 const result = arr.reduce((preValue, curValue, curIndex, array) => {
   console.log('value', preValue, curValue, curIndex, array)
@@ -106,7 +107,7 @@ const result = arr.reduce((preValue, curValue, curIndex, array) => {
 
 ### 数组去重
 
-```JavaScript
+```javascript
 const arr = [1, 2, 1, 3, 4, 5, 3, 8]
 let map = {};
 const result = arr.reduce((preValue, curValue) => {
@@ -120,7 +121,7 @@ const result = arr.reduce((preValue, curValue) => {
 
 ### 二维数组转为一维数组
 
-```JavaScript
+```javascript
 const arr = [[1, 2], [3, 4], [5, 6], [7, 8]]
 const result = arr.reduce((preValue, curValue) => {
   return preValue.concat(curValue)
