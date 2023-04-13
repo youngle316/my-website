@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Link } from 'next-intl';
 import Image from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -20,7 +21,14 @@ const CustomLink = (props: any) => {
     return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+      className="innerLink"
+    />
+  );
 };
 
 function RoundedImage(props: any) {

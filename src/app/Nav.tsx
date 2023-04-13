@@ -31,7 +31,7 @@ function Nav() {
         return (
           <div className="flex" key={label}>
             <Link
-              className={`text-stone-400 hover:text-stone-800 ${
+              className={`text-stone-400 hover:text-stone-800 dark:hover:text-stone-300 ${
                 isActive ? 'text-stone-800' : ''
               }`}
               href={href}

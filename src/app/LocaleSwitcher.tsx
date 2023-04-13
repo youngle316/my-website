@@ -27,7 +27,8 @@ function LocaleSwitcher() {
   return (
     <div
       onClick={changeLocale}
-      className="flex cursor-pointer justify-center text-sm text-stone-400 hover:text-stone-800"
+      className="flex cursor-pointer justify-center text-sm text-stone-400 
+      hover:text-stone-800 dark:hover:text-stone-300"
     >
       {locale === 'en' ? '🇨🇳 中文' : '🇺🇲 English'}
     </div>
