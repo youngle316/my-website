@@ -26,10 +26,10 @@ export default async function handler(
           total: views + 1
         });
       } else {
-        // await supabase
-        //   .from('views')
-        //   .update({ count: views + 1 })
-        //   .eq('slug', slug);
+        await supabase
+          .from('views')
+          .update({ count: views + 1 })
+          .eq('slug', slug);
         return res.status(200).json({
           total: views + 1
         });
