@@ -4,7 +4,6 @@ import * as React from 'react';
 import { Link } from 'next-intl';
 import Image from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 
 const CustomLink = (props: any) => {
   const href = props.href;
