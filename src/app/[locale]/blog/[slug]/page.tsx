@@ -3,6 +3,11 @@ import { Mdx } from '@/components/mdx';
 import { allBlogs } from 'contentlayer/generated';
 import Balancer from 'react-wrap-balancer';
 import ViewCounter from '../ViewCounter';
+import type { Metadata } from 'next';
+
+type Params = {
+  slug: string;
+};
 
 export async function generateStaticParams() {
   return allBlogs.map((post) => ({
@@ -10,7 +15,36 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Blog({ params }: { params: any }) {
+export async function generateMetadata({
+  params
+}: {
+  params: Params;
+}): Promise<Metadata | undefined> {
+  const post = allBlogs.find((post) => post.slug === params.slug);
+  if (!post) {
+    return;
+  }
+
+  const { title, publishedAt: publishedTime, summary: description } = post;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description
+    }
+  };
+}
+
+export default async function Blog({ params }: { params: Params }) {
   const post: any = allBlogs.find((post) => post.slug === params.slug);
 
   if (!post) {
