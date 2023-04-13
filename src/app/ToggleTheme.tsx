@@ -24,8 +24,7 @@ function ToggleTheme() {
   return (
     <div
       onClick={changeTheme}
-      className="flex cursor-pointer items-center justify-center gap-2 text-sm text-stone-400 
-      hover:text-stone-800 dark:hover:text-stone-300"
+      className="sidebar-switcher"
     >
       {theme === 'light' ? (
         <>

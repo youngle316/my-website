@@ -25,11 +25,7 @@ function LocaleSwitcher() {
   }
 
   return (
-    <div
-      onClick={changeLocale}
-      className="flex cursor-pointer justify-center text-sm text-stone-400 
-      hover:text-stone-800 dark:hover:text-stone-300"
-    >
+    <div onClick={changeLocale} className="sidebar-switcher">
       {locale === 'en' ? '🇨🇳 中文' : '🇺🇲 English'}
     </div>
   );
