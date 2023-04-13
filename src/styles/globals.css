@@ -5,8 +5,17 @@
 
 @layer components {
   .innerLink {
-    @apply inline-flex items-center font-semibold text-blue-600 no-underline transition-colors 
-    hover:text-blue-800 hover:underline dark:text-sky-300 dark:hover:text-sky-500;
+    @apply inline-flex items-center font-semibold text-[#006ace] no-underline transition-colors 
+    dark:text-[#52a9ff] hover:underline;
+  }
+
+  .social-svg {
+    @apply hover:text-stone-800 dark:hover:text-stone-300
+  }
+
+  .sidebar-switcher {
+    @apply flex cursor-pointer items-center justify-start gap-2 text-sm text-stone-400 hover:text-stone-800 
+    dark:hover:text-stone-300 md:justify-center
   }
 }
 

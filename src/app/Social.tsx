@@ -8,21 +8,21 @@ function Social() {
       <a
         href="https://github.com/youngle316"
         target="_blank"
-        className="hover:text-stone-800"
+        className="social-svg"
       >
         <FiGithub size={16} />
       </a>
       <a
         href="https://twitter.com/youngle316"
         target="_blank"
-        className="hover:text-stone-800"
+        className="social-svg"
       >
         <FiTwitter size={16} />
       </a>
       <a
         href="mailto:youngle316@gmail.com"
         target="_blank"
-        className="hover:text-stone-800"
+        className="social-svg"
       >
         <MdOutlineEmail size={16} />
       </a>
