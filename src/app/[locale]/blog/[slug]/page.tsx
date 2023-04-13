@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { Mdx } from '@/components/Mdx';
+import { Mdx } from '@/components/mdx';
 import { allBlogs } from 'contentlayer/generated';
 import Balancer from 'react-wrap-balancer';
 import ViewCounter from '../ViewCounter';
