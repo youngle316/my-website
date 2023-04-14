@@ -1,0 +1,25 @@
+---
+title: '使用 Linear 管理项目开发'
+publishedAt: '2023-04-14'
+summary: '介绍我对 Linear 使用时的技巧，与 GitHub 集成，以及一些特性。'
+tag: 'Tool'
+---
+
+[Linear](https://linear.app/) 是一款用于项目管理的工具。它提供了一个直观的用户界面，可以轻松地创建任务、追踪进度和与团队成员沟通。它的特点包括：
+
+- 优秀的设计：Linear 的用户界面非常漂亮，并且易于使用。
+- 敏捷方法：Linear 支持敏捷方法，如 Scrum 和看板，可以帮助用户更好地管理您的项目。
+- 集成：Linear 可以与其他常用工具集成，例如 GitHub、Slack、Figma 等。
+- 数据驱动：Linear 提供了许多数据和分析工具，可以帮助用户更好地了解项目进展和团队的表现。
+
+在使用 Linear 之前，尝试了 Notion，[GitHub issues](https://github.com/features/issues)，AirTable 等，都不是很满意。
+今年选择将 Linear 作为个人的项目管理工具，[chatgpt-nextjs](https://github.com/youngle316/chatgpt-nextjs) 项目就是使用 Linear 管理的，配合 GitHub 的 PR 功能对项目的需求和 Bug 可以更加方便的管理。
+
+使用 Linear 的 [GitHub 集成](https://linear.app/integrations/github) 来将 GitHub 仓库与 Linear 连接起来。
+在 Linear 中创建一个 issue，点进 issue 详情，通过 `shift + cmd + .` 可以查看该 issue 对应的Id，当你提了 PR 是关于这个 issue 的，
+那么就可以在 issue 的描述中配合关键字 fixed 等填写Id（如 fixed issues Id）。
+Linear 就会自动的将该 issue 的状态改为 In Progress，当 PR 被 merge 后，状态会自动改为 Done。并且 issue 的详情中也会关联这个 PR。两边都可相互查看非常的方便。
+
+而且免费版本可创建350个 issue，对于个人开发者来说也是够用的。
+
+同时也一直加新的特性，最近有个 cycle 版本迭代功能，可以帮助用户更好地组织和跟踪项目的进度，特别是对于有版本管理需求的项目团队来说，是一个非常好的选择。
