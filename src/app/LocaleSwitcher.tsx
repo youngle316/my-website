@@ -4,6 +4,7 @@ import { useLocale } from 'next-intl';
 import { usePathname } from 'next-intl/client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { LanguageIcon } from '@heroicons/react/24/outline';
 
 function LocaleSwitcher() {
   const locale = useLocale();
@@ -26,7 +27,7 @@ function LocaleSwitcher() {
 
   return (
     <div onClick={changeLocale} className="sidebar-switcher">
-      {locale === 'en' ? '🇨🇳 中文' : '🇺🇲 English'}
+      <LanguageIcon className="h-5 w-5" />
     </div>
   );
 }

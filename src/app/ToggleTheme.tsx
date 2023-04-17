@@ -1,13 +1,10 @@
 import { useTheme } from 'next-themes';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
-import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 function ToggleTheme() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-
-  const t = useTranslations('navbar');
 
   useEffect(() => {
     setMounted(true);
@@ -22,19 +19,14 @@ function ToggleTheme() {
   }
 
   return (
-    <div
-      onClick={changeTheme}
-      className="sidebar-switcher"
-    >
+    <div onClick={changeTheme} className="sidebar-switcher">
       {theme === 'light' ? (
         <>
-          <MoonIcon className="h-4 w-4" />
-          {t('dark')}
+          <MoonIcon className="h-5 w-5" />
         </>
       ) : (
         <>
-          <SunIcon className="h-4 w-4" />
-          {t('light')}
+          <SunIcon className="h-5 w-5" />
         </>
       )}
     </div>
