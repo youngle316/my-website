@@ -19,7 +19,7 @@ function Blog() {
           .map((post) => (
             <Link
               key={post.slug}
-              className="flex flex-col gap-2 sm:flex-row sm:gap-4"
+              className="flex flex-col gap-2 md:flex-row md:gap-12"
               href={`/blog/${post.slug}`}
             >
               <div className="text-stone-400">{post.publishedAt}</div>
