@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@giscus/react": "^2.2.8",
     "@heroicons/react": "^2.0.17",
     "@notionhq/client": "^2.2.3",
     "@supabase/supabase-js": "^2.15.0",

@@ -4,6 +4,7 @@ import { allBlogs } from 'contentlayer/generated';
 import Balancer from 'react-wrap-balancer';
 import ViewCounter from '../ViewCounter';
 import type { Metadata } from 'next';
+import Comments from '@/components/Comments';
 
 type Params = {
   slug: string;
@@ -67,6 +68,9 @@ export default async function Blog({ params }: { params: Params }) {
         <ViewCounter slug={post.slug} trackView />
       </div>
       <Mdx code={post.body.code} />
+      <div className="divide-y divide-gray-200 pb-8 transition-colors dark:divide-gray-700">
+        <Comments />
+      </div>
     </section>
   );
 }
