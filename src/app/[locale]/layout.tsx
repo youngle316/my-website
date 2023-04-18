@@ -1,5 +1,5 @@
 import '../../styles/globals.css';
-
+import generateRSS from '@/lib/generateRssFeed';
 import { notFound } from 'next/navigation';
 import { i18n } from '@/i18n/i18n';
 import { getMessages } from '@/i18n/i18n.server';
@@ -48,6 +48,7 @@ export default async function RootLayout({
   let messages;
   try {
     messages = await getMessages(params);
+    await generateRSS();
   } catch (error) {
     notFound();
   }

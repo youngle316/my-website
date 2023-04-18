@@ -35,11 +35,13 @@
     "rehype-pretty-code": "^0.9.4",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
+    "rss": "^1.2.2",
     "swr": "^2.1.2",
     "typescript": "5.0.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
+    "@types/rss": "^0.0.30",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
