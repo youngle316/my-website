@@ -25,7 +25,7 @@ export async function GET() {
     .map((post) => {
       feed.item({
         title: post.title,
-        url: `${siteURL}/blogs/${post.slug}`,
+        url: `${siteURL}/blog/${post.slug}`,
         date: post.publishedAt,
         description: post.summary
       });
