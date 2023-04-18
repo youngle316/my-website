@@ -3,13 +3,14 @@
 import {
   HomeModernIcon,
   BookOpenIcon,
+  RssIcon
 } from '@heroicons/react/24/outline';
 import { Link } from 'next-intl';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next-intl/client';
 import { useTranslations } from 'next-intl';
 import ToggleTheme from './ToggleTheme';
-import LocaleSwitcher from './LocaleSwitcher'
+import LocaleSwitcher from './LocaleSwitcher';
 
 const links = [
   { href: '/', label: 'home', icon: HomeModernIcon },
@@ -54,6 +55,13 @@ function Nav() {
 
       <LocaleSwitcher />
       <ToggleTheme />
+      <Link
+        target="_blank"
+        href="/rss.xml"
+        className="sidebar-switcher hidden md:flex"
+      >
+        <RssIcon className="h-5 w-5" />
+      </Link>
     </nav>
   );
 }

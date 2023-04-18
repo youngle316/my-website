@@ -1,15 +1,15 @@
-import { writeFileSync } from 'fs';
-import { allBlogs } from 'contentlayer/generated';
+import { NextResponse } from 'next/server';
 import RSS from 'rss';
+import { allBlogs } from 'contentlayer/generated';
 
-export default async function getRSS() {
+export async function GET() {
   const siteURL = 'https://younglele.cn';
 
   const feed = new RSS({
     title: 'YoungLe',
     description: 'YoungLe Blog, a blog about web development and life.',
     site_url: siteURL,
-    feed_url: `${siteURL}/feed.xml`,
+    feed_url: `${siteURL}/rss.xml`,
     language: 'en',
     pubDate: new Date(),
     copyright: `All rights reserved ${new Date().getFullYear()}, YoungLe`
@@ -30,6 +30,10 @@ export default async function getRSS() {
         description: post.summary
       });
     });
-
-  writeFileSync('./public/feed.xml', feed.xml({ indent: true }));
+  return new NextResponse(feed.xml({ indent: true }), {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/xml'
+    }
+  });
 }
