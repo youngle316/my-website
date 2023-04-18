@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Ubuntu', 'sans-serif']
+        sans: ['var(--font-inter)']
       },
       typography: {
         DEFAULT: {
@@ -18,6 +18,15 @@ module.exports = {
             maxWidth: '100ch',
             a: {
               textDecoration: 'none'
+            },
+            h1: {
+              fontWeight: '400'
+            },
+            h2: {
+              fontWeight: '400'
+            },
+            h3: {
+              fontWeight: '400'
             },
             ul: {
               '> li': {
