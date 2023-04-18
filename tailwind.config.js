@@ -19,6 +19,15 @@ module.exports = {
             a: {
               textDecoration: 'none'
             },
+            h1: {
+              fontWeight: '400'
+            },
+            h2: {
+              fontWeight: '400'
+            },
+            h3: {
+              fontWeight: '400'
+            },
             ul: {
               '> li': {
                 '*': {

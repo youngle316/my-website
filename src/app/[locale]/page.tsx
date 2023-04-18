@@ -20,6 +20,7 @@ export default function Home() {
           <a
             target="_blank"
             href="https://github.com/youngle316/chatgpt-nextjs"
+            className="innerLink"
           >
             https://github.com/youngle316/chatgpt-nextjs
           </a>
@@ -33,6 +34,7 @@ export default function Home() {
           <a
             target="_blank"
             href="https://github.com/youngle316/chatgpt-nextjs"
+            className="innerLink"
           >
             https://github.com/youngle316/ASRock-Z370M-ITX-AC
           </a>
