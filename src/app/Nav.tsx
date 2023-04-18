@@ -55,11 +55,7 @@ function Nav() {
 
       <LocaleSwitcher />
       <ToggleTheme />
-      <Link
-        target="_blank"
-        href="/rss.xml"
-        className="sidebar-switcher hidden md:flex"
-      >
+      <Link target="_blank" href="/rss.xml" className="sidebar-switcher">
         <RssIcon className="h-5 w-5" />
       </Link>
     </nav>
