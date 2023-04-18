@@ -9,6 +9,7 @@ import Sidebar from '../Sidebar';
 import Footer from '../Footer';
 import ThemeProvider from '@/provider/ThemeProvider';
 import Analytic from '../Analytics';
+import localFont from '@next/font/local';
 
 export const metadata = {
   title: 'YoungLe',
@@ -18,6 +19,24 @@ export const metadata = {
 export function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
 }
+
+const inter = localFont({
+  src: [
+    {
+      path: '../../../public/fonts/Inter-Light.otf',
+      weight: '300'
+    },
+    {
+      path: '../../../public/fonts/Inter-Regular.otf',
+      weight: '400'
+    },
+    {
+      path: '../../../public/fonts/Inter-Bold.otf',
+      weight: '500'
+    }
+  ],
+  variable: '--font-inter'
+});
 
 export default async function RootLayout({
   children,
@@ -34,13 +53,13 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang={params.locale}>
+    <html lang={params.locale} className={`${inter.variable} font-sans`}>
       <body className="relative bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
         <IntlProvider locale={params.locale} messages={messages}>
           <ThemeProvider>
             <Analytic />
             <Background />
-            <main className="mx-2 flex min-h-screen max-w-4xl flex-col pt-12 font-sans md:mx-4 md:mt-0 md:pt-10 lg:mx-auto lg:pt-14">
+            <main className="mx-2 flex min-h-screen max-w-screen-md flex-col pt-12 md:mx-4 md:mt-0 md:pt-10 lg:mx-auto lg:pt-14">
               <Sidebar />
               <section className="relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44">
                 <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl">

@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Ubuntu', 'sans-serif']
+        sans: ['var(--font-inter)']
       },
       typography: {
         DEFAULT: {
