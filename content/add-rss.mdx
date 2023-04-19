@@ -1,0 +1,69 @@
+---
+title: '如何在 next.js13 app 新特性中添加 rss'
+publishedAt: '2023-04-19'
+summary: '通过使用 rss 库，在 nextjs 13 和 app 新特性中添加 rss'
+tag: 'Next.js'
+---
+
+`rss` 在博客中是一个必要的功能，每当博客有更新时，订阅者可以通过阅读器获取到最新的博客内容，而无需频繁的访问网站，增加用户黏性。
+
+那么如何在 `Next.js` 13 app 新特性中添加 rss，网上都是基于 12 版本通过将生成的`rss.xml` 文件放到 `public` 文件夹中，然后通过 [Static File Serving](https://nextjs.org/docs/basic-features/static-file-serving) 特性，可以直接通过 `https://website.com/rss.xml` 获取到静态 `rss xml` 文件。
+
+到了 13 版本，使用上面的方法会直接返回 404，会将 `rss.xml` 当做路由处理。
+
+解决方法是通过路由特性，在 `app` 目录下创建名为 `rss.xml` 的文件夹，在 `rss.xml` 文件下创建一个名为 `route.ts` 的文件。通过 `NextResponse` 返回一个 `xml` 文件。当路由定位到 `rss.xml` 时，就会直接展示对应的 `xml` 文件。具体代码如下：
+
+```typescript
+// app/rss.xml/route.ts
+import { NextResponse } from 'next/server';
+import RSS from 'rss';
+import { allBlogs } from 'contentlayer/generated';
+import { remark } from 'remark';
+import remarkHtml from 'remark-html';
+import remarkGfm from 'remark-gfm';
+
+export async function GET() {
+  const siteURL = 'https://younglele.cn';
+
+  const feed = new RSS({
+    title: 'Le Blog',
+    description: 'YoungLe Blog, a blog about web development and life.',
+    site_url: siteURL,
+    feed_url: `${siteURL}/rss.xml`,
+    language: 'en',
+    pubDate: new Date(),
+    copyright: `All rights reserved ${new Date().getFullYear()}, YoungLe`
+  });
+
+  await allBlogs
+    .sort((a, b) => {
+      if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
+        return -1;
+      }
+      return 1;
+    })
+    .map(async (post) => {
+      const result = await remark()
+        .use(remarkHtml)
+        .use(remarkGfm)
+        .process(post.body.raw);
+      feed.item({
+        title: post.title,
+        url: `${siteURL}/blog/${post.slug}`,
+        date: post.publishedAt,
+        description: result.toString()
+      });
+    });
+
+  return new NextResponse(feed.xml({ indent: true }), {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/xml'
+    }
+  });
+}
+```
+
+上面的代码通过 `rss` 插件创建 `feed` 对象，并通过 `NextResponse` 返回一个 `xml` 文件。
+
+由于我获取的是字符串的 markdown 内容，通过 `remark` 插件将其转换为 `html` 格式。
