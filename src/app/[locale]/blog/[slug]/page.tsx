@@ -26,7 +26,15 @@ export async function generateMetadata({
     return;
   }
 
-  const { title, publishedAt: publishedTime, summary: description } = post;
+  const {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    slug
+  } = post;
+
+  const ogImage =
+    'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/matt-ragland-02z1I7gv4ao-unsplash.jpg';
 
   return {
     title,
@@ -35,12 +43,19 @@ export async function generateMetadata({
       title,
       description,
       type: 'article',
-      publishedTime
+      publishedTime,
+      url: `https://younglele.cn/blog/${slug}`,
+      images: [
+        {
+          url: ogImage
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      description
+      description,
+      images: [ogImage]
     }
   };
 }

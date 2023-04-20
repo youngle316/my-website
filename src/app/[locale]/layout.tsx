@@ -12,7 +12,29 @@ import localFont from '@next/font/local';
 
 export const metadata = {
   title: 'YoungLe',
-  description: 'YoungLe Blog'
+  description: 'Developer, gamer, and creator.',
+  openGraph: {
+    title: 'YoungLe',
+    description: 'Developer, gamer, and creator.',
+    url: 'https://younglele.cn',
+    siteName: 'YoungLe',
+    images: [
+      {
+        url: 'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/og-home.jpg',
+        width: 1920,
+        height: 1440
+      }
+    ],
+    locale: 'zh-CN',
+    type: 'website'
+  },
+  twitter: {
+    title: 'YoungLe',
+    card: 'summary_large_image'
+  },
+  icons: {
+    shortcut: '/favicon.ico'
+  }
 };
 
 export function generateStaticParams() {
