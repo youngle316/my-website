@@ -9,33 +9,39 @@ import Footer from '../Footer';
 import ThemeProvider from '@/provider/ThemeProvider';
 import Analytic from '../Analytics';
 import localFont from '@next/font/local';
+import type { Metadata } from 'next';
 
-export const metadata = {
-  title: 'YoungLe',
-  description: 'Developer, gamer, and creator.',
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata | undefined> {
+  const ogImage =
+    'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/lee-campbell-DtDlVpy-vvQ-unsplash.jpg';
+
+  return {
     title: 'YoungLe',
     description: 'Developer, gamer, and creator.',
-    url: 'https://younglele.cn',
-    siteName: 'YoungLe',
-    images: [
-      {
-        url: 'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/og-home.jpg',
-        width: 1920,
-        height: 1440
-      }
-    ],
-    locale: 'zh-CN',
-    type: 'website'
-  },
-  twitter: {
-    title: 'YoungLe',
-    card: 'summary_large_image'
-  },
-  icons: {
-    shortcut: '/favicon.ico'
-  }
-};
+    openGraph: {
+      title: 'YoungLe',
+      description: 'Developer, gamer, and creator.',
+      type: 'website',
+      url: 'https://younglele.cn',
+      siteName: 'YoungLe',
+      images: [
+        {
+          url: ogImage,
+          width: 1920,
+          height: 1440
+        }
+      ],
+      locale: 'zh-CN'
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'YoungLe',
+      site: 'https://twitter.com/youngle316',
+      description: 'Developer, gamer, and creator.',
+      images: [ogImage]
+    }
+  };
+}
 
 export function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
