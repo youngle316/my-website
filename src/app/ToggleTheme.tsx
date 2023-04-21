@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from 'react';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 function ToggleTheme() {
   const [mounted, setMounted] = useState(false);
@@ -22,11 +22,11 @@ function ToggleTheme() {
     <div onClick={changeTheme} className="sidebar-switcher">
       {theme === 'light' ? (
         <>
-          <MoonIcon className="h-5 w-5" />
+          <FiMoon className="h-5 w-5" />
         </>
       ) : (
         <>
-          <SunIcon className="h-5 w-5" />
+          <FiSun className="h-5 w-5" />
         </>
       )}
     </div>

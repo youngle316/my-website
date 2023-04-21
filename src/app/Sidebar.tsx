@@ -7,7 +7,7 @@ import Nav from './Nav';
 function Sidebar() {
   return (
     <aside>
-      <div className="mb-3 ml-3 flex flex-row justify-between gap-3 md:mb-6">
+      <div className="mb-3 flex flex-col gap-3 md:mb-6">
         <Link href="/">
           <Logo />
         </Link>

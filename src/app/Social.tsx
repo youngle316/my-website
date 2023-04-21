@@ -1,31 +1,39 @@
+'use client';
 import React from 'react';
-import { FiGithub, FiTwitter } from 'react-icons/fi';
-import { MdOutlineEmail } from 'react-icons/md';
+import { FiGithub, FiTwitter, FiInbox, FiRss } from 'react-icons/fi';
+import LocaleSwitcher from './LocaleSwitcher';
+import ToggleTheme from './ToggleTheme';
+import { Link } from 'next-intl';
 
 function Social() {
   return (
-    <div className="flex gap-2 text-stone-400 ">
+    <div className="flex gap-3 text-stone-400 ">
       <a
         href="https://github.com/youngle316"
         target="_blank"
         className="social-svg"
       >
-        <FiGithub size={16} />
+        <FiGithub size={20} />
       </a>
       <a
         href="https://twitter.com/youngle316"
         target="_blank"
         className="social-svg"
       >
-        <FiTwitter size={16} />
+        <FiTwitter size={20} />
       </a>
       <a
         href="mailto:youngle316@gmail.com"
         target="_blank"
         className="social-svg"
       >
-        <MdOutlineEmail size={16} />
+        <FiInbox size={20} />
       </a>
+      <LocaleSwitcher />
+      <ToggleTheme />
+      <Link target="_blank" href="/rss.xml" className="sidebar-switcher">
+        <FiRss className="h-5 w-5" />
+      </Link>
     </div>
   );
 }
