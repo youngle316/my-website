@@ -4,7 +4,7 @@ import { AbstractIntlMessages, RichTranslationValues } from 'next-intl';
 import { NextIntlClientProvider } from 'next-intl';
 import React from 'react';
 
-import { DefaultRichTextComponents } from '@/components/ui/RichText';
+import { DefaultRichTextComponents } from '@/components/RichText';
 
 type Props = {
   messages: AbstractIntlMessages;

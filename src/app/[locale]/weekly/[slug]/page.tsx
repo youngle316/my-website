@@ -31,7 +31,7 @@ export async function generateMetadata({
   } = post;
 
   const ogImage =
-    'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/matt-ragland-02z1I7gv4ao-unsplash.jpg';
+    'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/jazmin-quaynor-18mUXUS8ksI-unsplash.jpg';
 
   return {
     title,

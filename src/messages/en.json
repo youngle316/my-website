@@ -26,7 +26,8 @@
     "blog": "blog",
     "contact": "contact",
     "dark": "Dark",
-    "light": "Light"
+    "light": "Light",
+    "weekly": "weekly"
   },
   "blog": {
     "title": "Blog",

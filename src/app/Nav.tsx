@@ -1,22 +1,18 @@
 'use client';
 
-import {
-  HomeModernIcon,
-  BookOpenIcon,
-  RssIcon
-} from '@heroicons/react/24/outline';
+import { BookOpenIcon, PencilIcon } from '@heroicons/react/24/outline';
 import { Link } from 'next-intl';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next-intl/client';
 import { useTranslations } from 'next-intl';
-import ToggleTheme from './ToggleTheme';
-import LocaleSwitcher from './LocaleSwitcher';
+import Social from './Social';
+import { GiSittingDog } from 'react-icons/gi';
 
 const links = [
-  { href: '/', label: 'home', icon: HomeModernIcon },
+  { href: '/', label: 'home', icon: GiSittingDog },
   // { href: '/about', label: 'about', icon: TrophyIcon },
-  { href: '/blog', label: 'blog', icon: BookOpenIcon }
-  // { href: '/contact', label: 'contact', icon: InboxIcon }
+  { href: '/blog', label: 'blog', icon: BookOpenIcon },
+  { href: '/weekly', label: 'weekly', icon: PencilIcon }
 ];
 
 function Nav() {
@@ -25,7 +21,7 @@ function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex gap-5 text-sm font-bold">
+    <nav className="flex flex-col gap-3 text-sm font-bold">
       <div className="flex">
         {links.map(({ href, label, icon: Icon }) => {
           const isActive = pathname === href;
@@ -33,7 +29,7 @@ function Nav() {
             <div className="flex items-center justify-center" key={label}>
               <Link
                 className={`text-stone-400 hover:text-stone-800 dark:hover:text-stone-300 ${
-                  isActive ? 'text-stone-800' : ''
+                  isActive ? 'text-stone-800 dark:text-stone-200' : ''
                 }`}
                 href={href}
               >
@@ -42,7 +38,8 @@ function Nav() {
                   {t(label as any)}
                   {isActive ? (
                     <motion.div
-                      className="absolute inset-0 z-[-1] rounded-xl border border-stone-200 bg-gradient-to-r from-white to-stone-100"
+                      className="absolute inset-0 z-[-1] rounded-xl border border-stone-200 bg-gradient-to-r from-white to-stone-100 
+                      dark:border-stone-800 dark:bg-gradient-to-r dark:from-black dark:to-stone-800"
                       layoutId="cover"
                     />
                   ) : null}
@@ -53,11 +50,9 @@ function Nav() {
         })}
       </div>
 
-      <LocaleSwitcher />
-      <ToggleTheme />
-      <Link target="_blank" href="/rss.xml" className="sidebar-switcher">
-        <RssIcon className="h-5 w-5" />
-      </Link>
+      <div className="flex gap-2">
+        <Social />
+      </div>
     </nav>
   );
 }
