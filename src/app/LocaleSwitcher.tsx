@@ -27,7 +27,7 @@ function LocaleSwitcher() {
 
   return (
     <div onClick={changeLocale} className="sidebar-switcher">
-      <LanguageIcon className="h-5 w-5" />
+      <LanguageIcon className="h-4 w-4" />
     </div>
   );
 }

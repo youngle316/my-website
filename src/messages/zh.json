@@ -26,7 +26,8 @@
     "blog": "博客",
     "contact": "联系我",
     "dark": "深色",
-    "light": "浅色"
+    "light": "浅色",
+    "weekly": "周刊"
   },
   "blog": {
     "title": "博客",

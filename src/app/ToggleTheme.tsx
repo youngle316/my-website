@@ -22,11 +22,11 @@ function ToggleTheme() {
     <div onClick={changeTheme} className="sidebar-switcher">
       {theme === 'light' ? (
         <>
-          <FiMoon className="h-5 w-5" />
+          <FiMoon className="h-4 w-4" />
         </>
       ) : (
         <>
-          <FiSun className="h-5 w-5" />
+          <FiSun className="h-4 w-4" />
         </>
       )}
     </div>

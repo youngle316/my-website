@@ -11,28 +11,28 @@ function Social() {
       <a
         href="https://github.com/youngle316"
         target="_blank"
-        className="social-svg"
+        className="sidebar-switcher"
       >
-        <FiGithub size={20} />
+        <FiGithub size={16} />
       </a>
       <a
         href="https://twitter.com/youngle316"
         target="_blank"
-        className="social-svg"
+        className="sidebar-switcher"
       >
-        <FiTwitter size={20} />
+        <FiTwitter size={16} />
       </a>
       <a
         href="mailto:youngle316@gmail.com"
         target="_blank"
-        className="social-svg"
+        className="sidebar-switcher"
       >
-        <FiInbox size={20} />
+        <FiInbox size={16} />
       </a>
       <LocaleSwitcher />
       <ToggleTheme />
       <Link target="_blank" href="/rss.xml" className="sidebar-switcher">
-        <FiRss className="h-5 w-5" />
+        <FiRss className="h-4 w-4" />
       </Link>
     </div>
   );

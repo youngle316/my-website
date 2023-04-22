@@ -32,6 +32,10 @@ export const Blog = defineDocumentType(() => ({
     tag: {
       type: 'string',
       required: false
+    },
+    category: {
+      type: 'string',
+      required: false
     }
   },
   computedFields

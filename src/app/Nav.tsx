@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpenIcon } from '@heroicons/react/24/outline';
+import { BookOpenIcon, PencilIcon } from '@heroicons/react/24/outline';
 import { Link } from 'next-intl';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next-intl/client';
@@ -11,8 +11,8 @@ import { GiSittingDog } from 'react-icons/gi';
 const links = [
   { href: '/', label: 'home', icon: GiSittingDog },
   // { href: '/about', label: 'about', icon: TrophyIcon },
-  { href: '/blog', label: 'blog', icon: BookOpenIcon }
-  // { href: '/contact', label: 'contact', icon: InboxIcon }
+  { href: '/blog', label: 'blog', icon: BookOpenIcon },
+  { href: '/weekly', label: 'weekly', icon: PencilIcon }
 ];
 
 function Nav() {

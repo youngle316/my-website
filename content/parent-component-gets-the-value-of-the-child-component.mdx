@@ -3,6 +3,7 @@ title: 'React 父组件获取子组件值的四种方式'
 publishedAt: '2022-04-12'
 summary: '在 React 中,父组件常常需要获取子组件的值或状态。本文介绍了在 React 中父组件获取子组件值的四种主要方式。'
 tag: 'JavaScript'
+category: 'blog'
 ---
 
 > 子组件获取父组件的值都知道，最基本的就是通过 props 传值即可，同样也可以使用 context
@@ -44,7 +45,7 @@ class ChildClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: ''
     };
   }
   handleChange = (e) => this.setState({ value: e.target.value });
@@ -96,7 +97,10 @@ function ChildFun(props, ref) {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
-  useImperativeHandle(ref, () => ({ value, handleChange: (res) => setValue(res) }));
+  useImperativeHandle(ref, () => ({
+    value,
+    handleChange: (res) => setValue(res)
+  }));
   return (
     <div>
       <input value={value} onChange={handleChange} />
@@ -152,7 +156,10 @@ function ChildFun(props, ref) {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
-  useImperativeHandle(ref, () => ({ value, handleChange: (res) => setValue(res) }));
+  useImperativeHandle(ref, () => ({
+    value,
+    handleChange: (res) => setValue(res)
+  }));
   return (
     <div>
       <input value={value} onChange={handleChange} />
@@ -194,12 +201,12 @@ class ChildClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: ''
     };
   }
   customChange = (res) => {
     this.setState({
-      value: res,
+      value: res
     });
   };
   handleChange = (e) => this.setState({ value: e.target.value });
