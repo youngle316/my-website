@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation';
 import { allBlogs } from 'contentlayer/generated';
 import type { Metadata } from 'next';
 import ArticleContent from '@/components/blog/ArticleContent';
@@ -6,12 +5,6 @@ import ArticleContent from '@/components/blog/ArticleContent';
 type Params = {
   slug: string;
 };
-
-export async function generateStaticParams() {
-  return allBlogs.map((post) => ({
-    slug: post.slug
-  }));
-}
 
 export async function generateMetadata({
   params
@@ -58,11 +51,5 @@ export async function generateMetadata({
 }
 
 export default async function Blog({ params }: { params: Params }) {
-  const post: any = allBlogs.find((post) => post.slug === params.slug);
-
-  if (!post) {
-    notFound();
-  }
-
   return <ArticleContent params={params} />;
 }
