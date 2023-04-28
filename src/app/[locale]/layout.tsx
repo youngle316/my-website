@@ -13,7 +13,7 @@ import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const ogImage =
-    'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/lee-campbell-DtDlVpy-vvQ-unsplash.jpg';
+    'https://tohvlvtcdfndxfxeeeaa.supabase.co/storage/v1/object/public/my-website/assets/home.jpg';
 
   return {
     title: 'YoungLe',
