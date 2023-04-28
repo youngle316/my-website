@@ -31,7 +31,7 @@ export async function generateMetadata({
   } = post;
 
   const ogImage =
-    'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/matt-ragland-02z1I7gv4ao-unsplash.jpg';
+    'https://tohvlvtcdfndxfxeeeaa.supabase.co/storage/v1/object/public/my-website/assets/page.jpg';
 
   return {
     title,
