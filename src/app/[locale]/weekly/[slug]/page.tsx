@@ -24,7 +24,7 @@ export async function generateMetadata({
   } = post;
 
   const ogImage =
-    'https://obsidian-picgo-le.oss-cn-hangzhou.aliyuncs.com/img/jazmin-quaynor-18mUXUS8ksI-unsplash.jpg';
+    'https://tohvlvtcdfndxfxeeeaa.supabase.co/storage/v1/object/public/my-website/assets/weekly.jpg';
 
   return {
     title,
