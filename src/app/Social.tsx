@@ -1,8 +1,6 @@
 'use client';
 import React from 'react';
 import { FiGithub, FiTwitter, FiInbox, FiRss } from 'react-icons/fi';
-import LocaleSwitcher from './LocaleSwitcher';
-import ToggleTheme from './ToggleTheme';
 import { Link } from 'next-intl';
 
 function Social() {
@@ -13,26 +11,25 @@ function Social() {
         target="_blank"
         className="sidebar-switcher"
       >
-        <FiGithub size={16} />
+        <FiGithub size={24} />
       </a>
       <a
         href="https://twitter.com/youngle316"
         target="_blank"
         className="sidebar-switcher"
       >
-        <FiTwitter size={16} />
+        <FiTwitter size={24} />
       </a>
       <a
         href="mailto:youngle316@gmail.com"
         target="_blank"
         className="sidebar-switcher"
       >
-        <FiInbox size={16} />
+        <FiInbox size={24} />
       </a>
-      <LocaleSwitcher />
-      <ToggleTheme />
+
       <Link target="_blank" href="/rss.xml" className="sidebar-switcher">
-        <FiRss className="h-4 w-4" />
+        <FiRss className="h-6 w-6" />
       </Link>
     </div>
   );
