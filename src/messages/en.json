@@ -32,5 +32,8 @@
   "blog": {
     "title": "Blog",
     "views": "views"
+  },
+  "footer": {
+    "totalViews": "Total Views"
   }
 }

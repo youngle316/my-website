@@ -32,5 +32,8 @@
   "blog": {
     "title": "博客",
     "views": "阅读"
+  },
+  "footer": {
+    "totalViews": "总访问量"
   }
 }
