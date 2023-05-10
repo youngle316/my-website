@@ -27,13 +27,15 @@ export default function ViewCounter({
   const viewsForSlug = data && data.find((view) => view.slug === slug);
   const views = new Number(viewsForSlug?.count || 0);
 
+  const isPro = process.env.NODE_ENV === 'production';
+
   useEffect(() => {
     const registerView = () =>
       fetch(`/api/views/${slug}`, {
         method: 'POST'
       });
 
-    if (trackView) {
+    if (trackView && isPro) {
       registerView();
     }
   }, [slug]);
