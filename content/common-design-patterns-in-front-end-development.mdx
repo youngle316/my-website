@@ -1,0 +1,239 @@
+---
+title: '前端常用的设计模式'
+enTitle: 'common-design-patterns-in-front-end-development'
+publishedAt: '2023-05-11'
+summary: '本文简单的介绍了什么是设计模式，前端常用的设计模式，包括工厂模式、单例模式、装饰器模式、代理模式、观察者模式、订阅发布模式'
+tag: 'Next.js'
+category: 'blog'
+---
+
+## 什么是设计模式
+
+设计模式是在软件开发中经常出现的问题的解决方案。这些解决方案已被证明是有效的，并且在实践中被广泛应用，可以提高代码的可重用性、可维护性和可扩展性。设计模式通常由一组互相关联的类、对象和方法组成，每个模式都有一个特定的目的和使用场景，并使用一致的命名和结构来使其易于理解和使用。设计模式是从软件开发实践中总结出来的最佳实践，可以帮助开发人员更快地解决问题并编写高质量的代码。
+
+## 设计原则
+
+最重要的思想：开放封闭原则
+
++ 对扩展开放
++ 对修改封闭
+
+## 常用的设计模式
+
+### 工厂模式
+
+JS 工厂模式是一种创建对象的设计模式，可以用来创建对象而无需明确的使用 new 运算符，下面是一个示例
+
+```javascript
+function Person(name, age) {
+ this.name = name;
+ this.age = age
+}
+
+// 创建工厂函数，用于创建 Person 实例
+function createPerson(name, age) {
+	return new Person(name, age)
+}
+
+const person1 = createPerson('le', 1);
+const person2 = createPerson('le', 2);
+```
+
+### 单例模式
+
+单例模式保证一个类只有一个实例，并提供全局访问点，通过限制类的构造函数为私有来实现，以防止外部代码创建多个实例
+
+```typescript
+class Singleton {
+  private static instance: Singleton | null = null;
+  private constructor() {}
+  public static getInstance() {
+    if (!this.instance) {
+      this.instance = new Singleton();
+    }
+    return this.instance;
+  }
+}
+
+const instance1 = Singleton.getInstance();
+const instance2 = Singleton.getInstance();
+
+console.log("instance1 === instance2", instance1 === instance2); // true
+```
+
+### 代理模式
+
+代理模式通过创建一个代理对象来控制对另一个对象的访问，代理对象可以拦截并处理对原始对象的请求
+
+```javascript
+class Image {
+  constructor(url) {
+    this.url = url;
+  }
+  
+  draw() {
+    console.log(`Drawing image from ${this.url}`);
+  }
+}
+
+class ImageProxy {
+  constructor(url) {
+    this.image = new Image(url);
+  }
+  
+  draw() {
+    this.showPlaceholder();
+    this.image.draw();
+  }
+  
+  showPlaceholder() {
+    console.log('Showing placeholder image');
+  }
+}
+
+const img = new ImageProxy('https://example.com/img.jpg');
+img.draw(); // 显示 placeholder, 然后加载并绘制图片
+```
+
+在上面的例子中，ImageProxy 对象充当了 Image 对象的代理，在实际绘制图片之前，它会先显示一个占位符。
+
+### 观察者模式
+
+其中一个对象（称为主题）维护其所有依赖对象列表（称为观察者），并在状态发生变化时通知这些观察者。这使得多个对象之间可以松散耦合，且当一个对象的状态发生更改时会自动更新相关的其他对象。
+
+```typescript
+class Subject {
+  private observers: Observer[];
+  constructor() {
+    this.observers = [];
+  }
+
+  subscribe(observer) {
+    this.observers.push(observer);
+  }
+
+  unsubscribe(observer) {
+    this.observers = this.observers.filter((obs) => obs !== observer);
+  }
+
+  notify(data) {
+    this.observers.forEach((observer) => observer.update(data));
+  }
+}
+
+class Observer {
+  private name: string;
+  constructor(name) {
+    this.name = name;
+  }
+
+  update(data) {
+    console.log(`${this.name} received data: ${data}`);
+  }
+}
+
+const subject = new Subject();
+
+const observerA = new Observer("Observer A");
+const observerB = new Observer("Observer B");
+
+subject.subscribe(observerA);
+subject.subscribe(observerB);
+
+subject.notify("Hello, world!");
+// Observer A received data: Hello, world!
+// Observer B received data: Hello, world!
+
+subject.unsubscribe(observerB);
+
+subject.notify("Goodbye!");
+// Observer A received data: Goodbye!
+```
+
+在上面的代码中，`Subject` 对象维护了一个观察者列表(`observers`)。 `Observer` 对象可以订阅(`subscribe`)或取消订阅(`unsubscribe`)主题对象的通知。当 `Subject` 发生变化时，它会调用其所有观察者的 `update` 方法，并传递数据以供观察者使用。在这个例子中，我们创建了两个观察者(`observerA` 和 `observerB`)，它们都订阅了 (`subscribe`) `subject` 对象的通知。然后，`subject` 的 `notify` 方法被调用两次，观察者会接收到相应的数据并输出到控制台。最后，我们取消了其中一个观察者（`observerB`）的订阅，因此它不会再接收到后续的通知。
+
+### 发布订阅模式
+
+其中一个主题或事件（发布者）在发生时通知所有已经注册的监听器（订阅者）。这使得多个模块之间可以松散耦合且具有高度灵活性
+
+```typescript
+class EventManager {
+  private events: any;
+  constructor() {
+    this.events = {};
+  }
+
+  // 订阅事件
+  subscribe(event, callback) {
+    if (!this.events[event]) {
+      this.events[event] = [];
+    }
+    this.events[event].push(callback);
+  }
+
+  // 发布事件
+  publish(event, data) {
+    if (!this.events[event]) {
+      return;
+    }
+    this.events[event].forEach((callback) => {
+      callback(data);
+    });
+  }
+}
+
+// 创建一个事件管理器实例
+const eventManager = new EventManager();
+
+// 订阅 "click" 事件
+eventManager.subscribe("click", function (data) {
+  console.log(`用户点击了 ${data}`);
+});
+
+// 发布 "click" 事件
+eventManager.publish("click", "按钮");
+// 输出： 用户点击了 按钮
+```
+
+上述示例中，我们创建了一个 `EventManager` 类来管理事件。它具有两个方法，即 `subscribe` 和 `publish`。其中，`subscribe` 方法允许我们为特定的事件添加回调函数，而 `publish` 方法则用于触发该事件并执行所有订阅的回调函数。
+
+#### 观察者模式和发布订阅模式的区别
+
+观察者模式中，一个主题对象（subject）维护了一个依赖它的观察者对象（observer）列表，在状态变化时直接通知所有观察者进行更新，观察者模式是一种一对多的关系。
+
+发布订阅模式中，消息的发布者（publisher）并不会直接通知订阅者（subscriber），而是通过一个中介对象（broker）来完成这个过程。发布者将消息发布到 broker 上，broker 根据预先定义好的规则将消息转发给相应的订阅者，发布订阅模式是一种多对多的关系
+
+### 装饰器模式
+
+装饰器模式允许在运行时给对象添加额外的行为（即装饰），而不需要修改原始对象的代码
+
+```typescript
+// 原始对象
+class Car {
+  drive() {
+    console.log("Car is driving");
+  }
+}
+
+// 装饰器类
+class Decorator {
+  private car: Car;
+  constructor(car) {
+    this.car = car;
+  }
+
+  driveFast() {
+    console.log("Driving fast...");
+  }
+
+  drive() {
+    this.car.drive();
+    this.driveFast();
+  }
+}
+
+// 使用装饰器
+const car = new Car();
+const decoratedCar = new Decorator(car);
+decoratedCar.drive(); // 输出 "Car is driving" 和 "Driving fast..."
+```
