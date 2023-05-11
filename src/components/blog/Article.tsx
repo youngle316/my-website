@@ -58,7 +58,9 @@ const ArticleYear = ({ category, year }: BlogProps) => {
     <div className="flex flex-col gap-4">
       {allBlogs
         .filter((item) => {
-          return item.category === category && item.publishedAt.includes(year);
+          return (
+            item.category === category && item.publishedAt.includes(year || '')
+          );
         })
         .sort((a, b) => {
           if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
