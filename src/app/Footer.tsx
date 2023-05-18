@@ -1,6 +1,6 @@
 'use client';
 
-import { FiUsers } from 'react-icons/fi';
+import { Users } from 'lucide-react';
 import ViewCounter from './[locale]/blog/ViewCounter';
 import { useTranslations } from 'next-intl';
 
@@ -12,7 +12,7 @@ function Footer() {
       <div className="h-px w-1/2 rounded-xl bg-gradient-to-r from-stone-50 to-stone-200 dark:from-stone-900 dark:to-stone-700" />
       <p className="text-sm dark:text-stone-400">Made By YoungLe</p>
       <div className="flex items-center gap-1 text-sm dark:text-stone-400">
-        <FiUsers />
+        <Users />
         {t('totalViews')}:
         <ViewCounter slug="totalViews" trackView />
       </div>

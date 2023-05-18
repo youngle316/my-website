@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { Sun, MoonStar } from 'lucide-react';
 
 function ToggleTheme() {
   const [mounted, setMounted] = useState(false);
@@ -22,11 +22,11 @@ function ToggleTheme() {
     <div onClick={changeTheme} className="sidebar-switcher">
       {theme === 'light' ? (
         <>
-          <FiMoon className="h-8 w-8" />
+          <MoonStar className="h-6 w-6" />
         </>
       ) : (
         <>
-          <FiSun className="h-8 w-8" />
+          <Sun className="h-6 w-6" />
         </>
       )}
     </div>

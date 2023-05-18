@@ -1,14 +1,11 @@
 import { Link } from 'next-intl';
-import {
-  ArrowDownLeftIcon,
-  ArrowUpRightIcon
-} from '@heroicons/react/24/outline';
+import { ArrowUpRight, ArrowDownLeft } from 'lucide-react';
 
 const innerLink = (text: string, href: string) => {
   return (
     <Link href={href} className="innerLink">
       <span>{text}</span>
-      <ArrowDownLeftIcon className="ml-px h-3 w-3" />
+      <ArrowDownLeft className="ml-px h-3 w-3" />
     </Link>
   );
 };
@@ -17,7 +14,7 @@ const externalLink = (text: string, href: string) => {
   return (
     <a href={href} className="innerLink" target="_blank">
       <span>{text}</span>
-      <ArrowUpRightIcon className="ml-px h-3 w-3" />
+      <ArrowUpRight className="ml-px h-3 w-3" />
     </a>
   );
 };

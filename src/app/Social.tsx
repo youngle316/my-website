@@ -1,35 +1,37 @@
 'use client';
 import React from 'react';
-import { FiGithub, FiTwitter, FiInbox, FiRss } from 'react-icons/fi';
 import { Link } from 'next-intl';
+import { Github, Twitter, Mail, Rss } from 'lucide-react';
+
+const ICON_SIZE = 20;
 
 function Social() {
   return (
-    <div className="flex gap-3 text-stone-400 ">
+    <div className="flex gap-6 text-stone-400 ">
       <a
         href="https://github.com/youngle316"
         target="_blank"
         className="sidebar-switcher"
       >
-        <FiGithub size={24} />
+        <Github size={ICON_SIZE} />
       </a>
       <a
         href="https://twitter.com/youngle316"
         target="_blank"
         className="sidebar-switcher"
       >
-        <FiTwitter size={24} />
+        <Twitter size={ICON_SIZE} />
       </a>
       <a
         href="mailto:youngle316@gmail.com"
         target="_blank"
         className="sidebar-switcher"
       >
-        <FiInbox size={24} />
+        <Mail size={ICON_SIZE} />
       </a>
 
       <Link target="_blank" href="/rss.xml" className="sidebar-switcher">
-        <FiRss className="h-6 w-6" />
+        <Rss size={ICON_SIZE} />
       </Link>
     </div>
   );
