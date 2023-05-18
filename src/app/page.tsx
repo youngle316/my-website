@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      <h1>👋&nbsp;大家好</h1>
+      {/* <h1>👋&nbsp;大家好</h1>
       <p>
         我是 <b>YoungLe</b>，
         一名后知后觉热爱编程和游戏的前端开发工程师。同时也热衷于捣鼓各种新鲜的工具和技术。
@@ -12,7 +12,7 @@ export default function Home() {
       <p>
         我曾尝试使用多个博客应用，但写下有价值的内容并不多。这次我打算使用
         Next.js 实现自己的博客，并计划花一些时间好好沉淀和书写。
-      </p>
+      </p> */}
     </>
   );
 }

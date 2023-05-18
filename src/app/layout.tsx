@@ -63,14 +63,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-cn" className={`${inter.variable} font-sans`}>
+    <html lang="zh" className={`${inter.variable} font-sans`}>
       <body className="relative bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
         <ThemeProvider>
           <Analytic />
           <Background />
-          <main className="mx-2 flex min-h-screen max-w-screen-lg flex-col pt-12 md:mx-4 md:mt-0 md:pt-10 lg:mx-auto lg:pt-14">
-            <Sidebar />
-            <section className="relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-[#fefefe] p-5 pb-36 shadow-xl dark:border-stone-800 dark:bg-[#1a1a1a] md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44">
+          <main className="mx-2 flex min-h-screen max-w-screen-lg flex-col md:mx-4 md:mt-0 lg:mx-auto">
+            <section className="relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-zinc-50 p-5 pb-36 dark:border-zinc-800 dark:bg-zinc-900 md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44">
+              <Sidebar />
               <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl">
                 {children}
               </article>
