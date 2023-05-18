@@ -4,7 +4,7 @@ import { useLocale } from 'next-intl';
 import { usePathname } from 'next-intl/client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { LanguageIcon } from '@heroicons/react/24/outline';
+import { Languages } from 'lucide-react';
 
 function LocaleSwitcher() {
   const locale = useLocale();
@@ -27,7 +27,7 @@ function LocaleSwitcher() {
 
   return (
     <div onClick={changeLocale} className="sidebar-switcher">
-      <LanguageIcon className="h-8 w-8" />
+      <Languages size={24} />
     </div>
   );
 }

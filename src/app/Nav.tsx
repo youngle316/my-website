@@ -1,18 +1,17 @@
 'use client';
 
-import { BookOpenIcon, PencilIcon } from '@heroicons/react/24/outline';
 import { Link } from 'next-intl';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next-intl/client';
 import { useTranslations } from 'next-intl';
 import Social from './Social';
-import { GiSittingDog } from 'react-icons/gi';
+import { Fan, Library, Candy } from 'lucide-react';
 
 const links = [
-  { href: '/', label: 'home', icon: GiSittingDog },
+  { href: '/', label: 'home', icon: Fan },
   // { href: '/about', label: 'about', icon: TrophyIcon },
-  { href: '/blog', label: 'blog', icon: BookOpenIcon },
-  { href: '/weekly', label: 'weekly', icon: PencilIcon }
+  { href: '/blog', label: 'blog', icon: Library },
+  { href: '/weekly', label: 'weekly', icon: Candy }
 ];
 
 function Nav() {
