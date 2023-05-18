@@ -1,9 +1,8 @@
 'use client';
 
 import Logo from '@/components/Logo';
-import { Link } from 'next-intl';
+import Link from 'next/link';
 import Nav from './Nav';
-import LocaleSwitcher from './LocaleSwitcher';
 import ToggleTheme from './ToggleTheme';
 
 function Sidebar() {
@@ -15,7 +14,6 @@ function Sidebar() {
             <Logo />
           </Link>
           <div className="flex gap-4">
-            <LocaleSwitcher />
             <ToggleTheme />
           </div>
         </div>

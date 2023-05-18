@@ -1,5 +1,5 @@
 import { allBlogs } from 'contentlayer/generated';
-import { Link } from 'next-intl';
+import Link from 'next/link';
 
 type BlogProps = {
   category: 'blog' | 'weekly';

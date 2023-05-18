@@ -1,22 +1,18 @@
 'use client';
 
-import { Link } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { usePathname } from 'next-intl/client';
-import { useTranslations } from 'next-intl';
 import Social from './Social';
 import { Fan, Library, Candy } from 'lucide-react';
 
 const links = [
-  { href: '/', label: 'home', icon: Fan },
-  // { href: '/about', label: 'about', icon: TrophyIcon },
-  { href: '/blog', label: 'blog', icon: Library },
-  { href: '/weekly', label: 'weekly', icon: Candy }
+  { href: '/', label: '主页', icon: Fan },
+  { href: '/blog', label: '文章', icon: Library },
+  { href: '/weekly', label: '周刊', icon: Candy }
 ];
 
 function Nav() {
-  const t = useTranslations('navbar');
-
   const pathname = usePathname();
 
   return (
@@ -34,7 +30,7 @@ function Nav() {
               >
                 <span className="relative flex items-center justify-center gap-1 p-2">
                   <Icon className="h-4 w-4" />
-                  {t(label as any)}
+                  {label}
                   {isActive ? (
                     <motion.div
                       className="absolute inset-0 z-[-1] rounded-xl border border-stone-200 bg-gradient-to-r from-white to-stone-100 

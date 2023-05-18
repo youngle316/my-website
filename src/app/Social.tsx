@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Link } from 'next-intl';
+import Link from 'next/link';
 import { Github, Twitter, Mail, Rss } from 'lucide-react';
 
 const ICON_SIZE = 20;

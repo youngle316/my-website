@@ -1,7 +1,7 @@
 import React from 'react';
 import { allBlogs } from 'contentlayer/generated';
 import Balancer from 'react-wrap-balancer';
-import ViewCounter from '@/app/[locale]/blog/ViewCounter';
+import ViewCounter from '@/app/blog/ViewCounter';
 import { Mdx } from '@/components/mdx';
 import Comments from '@/components/Comments';
 

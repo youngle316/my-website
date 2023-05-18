@@ -8,8 +8,8 @@ export const metadata = {
 function Blog() {
   return (
     <div style={{ opacity: 1, transform: 'none' }}>
-      <h1>Blog</h1>
-      <Article category="blog" />
+      <h1>周刊</h1>
+      <Article category="weekly" />
     </div>
   );
 }
