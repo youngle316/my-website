@@ -113,7 +113,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <article className="prose-quoteless prose prose-neutral dark:prose-invert">
+    <article className="prose-quoteless prose prose-neutral dark:prose-invert text-zinc-600 dark:text-zinc-400">
       <Component components={{ ...components }} />
     </article>
   );

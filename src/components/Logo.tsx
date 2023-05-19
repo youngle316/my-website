@@ -3,7 +3,7 @@ import Image from 'next/image';
 function Logo() {
   return (
     <Image
-      className="rounded-md"
+      className="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-16 w-16"
       alt="logo"
       src="/assets/logo.jpg"
       width={48}

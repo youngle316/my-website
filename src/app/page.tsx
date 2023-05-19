@@ -1,18 +1,79 @@
+import Logo from '@/components/Logo';
+import Social from './Social';
+import { HOBBY_PROJECT } from '@/constant';
+import ContentList from '@/components/ContentList';
+import { Cookie, Eraser } from 'lucide-react';
+import { allBlogs } from 'contentlayer/generated';
+
 export default function Home() {
   return (
-    <>
-      {/* <h1>👋&nbsp;大家好</h1>
+    <div>
+      <div className="flex gap-4">
+        <Logo />
+        <div>
+          <h3>YoungLe</h3>
+          <div className="text-sm text-zinc-400">
+            前端工程师 | 万事皆虚、万物皆允 • Stay Hungry、Stay Foolish
+          </div>
+        </div>
+      </div>
+
+      <p>👋&nbsp;大家好</p>
+
       <p>
-        我是 <b>YoungLe</b>，
-        一名后知后觉热爱编程和游戏的前端开发工程师。同时也热衷于捣鼓各种新鲜的工具和技术。
+        我是
+        YoungLe，软件开发工程师，喜欢倒腾新工具，折腾新技术，希望用自己有线的知识给家人做出好用的产品。同时热爱游戏，刺客信条、FIFA、NBA2K
+        等系列游戏的忠实粉丝。
       </p>
-      <p>
-        我也会写一些 开源项目，此外还喜欢在 博客 上记录我的开发工作和日常生活。
-      </p>
-      <p>
-        我曾尝试使用多个博客应用，但写下有价值的内容并不多。这次我打算使用
-        Next.js 实现自己的博客，并计划花一些时间好好沉淀和书写。
-      </p> */}
-    </>
+
+      <Social />
+
+      <div>
+        <div className="home-title">
+          <Cookie size={20} />
+          业余项目
+        </div>
+        <div className="flex flex-col gap-3">
+          {HOBBY_PROJECT.map((item) => {
+            return (
+              <ContentList
+                main={item.time}
+                href={item.href}
+                name={item.name}
+                des={item.des}
+                showIcon
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      <div>
+        <div className="home-title">
+          <Eraser size={20} />
+          近期文章
+        </div>
+        <div className="flex flex-col gap-3">
+          {allBlogs
+            .sort((a, b) => {
+              if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
+                return -1;
+              }
+              return 1;
+            })
+            .filter((item, index) => index < 10)
+            .map((item) => {
+              return (
+                <ContentList
+                  main={item.publishedAt}
+                  href={`/${item.category}/${item.slug}`}
+                  name={item.title}
+                  des={item.des}
+                />
+              );
+            })}
+        </div>
+      </div>
+    </div>
   );
 }

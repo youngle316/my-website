@@ -29,9 +29,12 @@ function Nav() {
           </Popover.Button>
 
           <Popover.Panel>
-            {({close}) => (
+            {({ close }) => (
               <>
-                <div onClick={() => close()} className="fixed inset-0 z-50 bg-zinc-800/40 opacity-100 backdrop-blur-sm dark:bg-black/80" />
+                <div
+                  onClick={() => close()}
+                  className="fixed inset-0 z-50 bg-zinc-800/40 opacity-100 backdrop-blur-sm dark:bg-black/80"
+                />
                 <div className="fixed inset-x-4 top-8 z-50 origin-top scale-100 grid-cols-2 rounded-3xl bg-gradient-to-b from-zinc-100/75 to-white p-8 opacity-100 ring-1 ring-zinc-900/5 dark:from-zinc-900/50 dark:to-zinc-900 dark:ring-zinc-800">
                   <div className="flex justify-between">
                     <h2>站内导航</h2>
@@ -65,7 +68,7 @@ function Nav() {
 
       <nav className="group pointer-events-auto relative hidden rounded-full bg-gradient-to-b from-zinc-50/50 to-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur [--spotlight-color:rgb(236_252_203_/_0.6)] dark:from-zinc-900/50 dark:to-zinc-800/90 dark:ring-zinc-100/10 dark:[--spotlight-color:rgb(217_249_157_/_0.07)] md:block">
         <div className="pointer-events-none absolute -inset-px rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-        <ul className="flex bg-transparent px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200 ">
+        <ul className="flex bg-transparent px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200">
           {links.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href;
             return (
@@ -76,7 +79,7 @@ function Nav() {
                   }`}
                   href={href}
                 >
-                  <div className="flex items-center gap-1">
+                  <div className={`flex items-center gap-1 ${!isActive && 'hover:text-violet-600/50 dark:hover:text-violet-400'} `}>
                     <Icon className="h-4 w-4" />
                     {label}
                   </div>

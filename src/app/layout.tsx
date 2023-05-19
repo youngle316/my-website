@@ -68,7 +68,7 @@ export default async function RootLayout({
         <ThemeProvider>
           <Analytic />
           <Background />
-          <main className="mx-2 flex min-h-screen max-w-screen-lg flex-col md:mx-4 md:mt-0 lg:mx-auto">
+          <main className="mx-2 flex min-h-screen max-w-screen-md flex-col md:mx-4 md:mt-0 lg:mx-auto">
             <section className="relative z-20 mt-3 flex w-full flex-auto flex-col border border-transparent bg-zinc-50 p-5 pb-36 dark:border-zinc-800 dark:bg-zinc-900 md:mt-0 md:p-7 md:pb-36 lg:p-9 lg:pb-44">
               <Sidebar />
               <article className="prose dark:prose-invert prose-headings:tracking-tighter prose-h1:text-2xl prose-p:leading-loose prose-p:tracking-tight prose-li:tracking-tight prose-img:rounded-xl lg:prose-h1:text-4xl">

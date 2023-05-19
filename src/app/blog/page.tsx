@@ -8,7 +8,7 @@ export const metadata = {
 function Blog() {
   return (
     <div style={{ opacity: 1, transform: 'none' }}>
-      <h1>文章</h1>
+      <div className='home-title'>全部文章</div>
       <Article category="blog" />
     </div>
   );

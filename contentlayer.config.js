@@ -40,6 +40,10 @@ export const Blog = defineDocumentType(() => ({
     category: {
       type: 'string',
       required: false
+    },
+    des: {
+      type: 'string',
+      required: false
     }
   },
   computedFields
