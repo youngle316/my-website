@@ -1,4 +1,4 @@
-import { Link } from 'next-intl';
+import Link from 'next/link';
 import { ArrowUpRight, ArrowDownLeft } from 'lucide-react';
 
 const innerLink = (text: string, href: string) => {
