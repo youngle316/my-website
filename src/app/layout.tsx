@@ -12,14 +12,14 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
     'https://tohvlvtcdfndxfxeeeaa.supabase.co/storage/v1/object/public/my-website/assets/home.jpg';
 
   return {
-    title: 'YoungLe',
+    title: 'YoungLe | Developer, gamer, and creator',
     description: 'Developer, gamer, and creator.',
     openGraph: {
       title: 'YoungLe',
       description: 'Developer, gamer, and creator.',
       type: 'website',
       url: 'https://younglele.cn',
-      siteName: 'YoungLe',
+      siteName: 'YoungLe | Developer, gamer, and creator.',
       images: [
         {
           url: ogImage,

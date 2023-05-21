@@ -28,6 +28,7 @@
     "next-contentlayer": "^0.3.1",
     "next-sitemap": "^4.0.7",
     "next-themes": "^0.2.1",
+    "psn-api": "^2.9.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-wrap-balancer": "^0.4.0",
