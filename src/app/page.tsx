@@ -2,8 +2,9 @@ import Logo from '@/components/Logo';
 import Social from './Social';
 import { HOBBY_PROJECT } from '@/constant';
 import ContentList from '@/components/ContentList';
-import { Cookie, Eraser } from 'lucide-react';
+import { Cookie, Eraser, Gamepad2 } from 'lucide-react';
 import { allBlogs } from 'contentlayer/generated';
+import Psn from './Psn';
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
           {HOBBY_PROJECT.map((item) => {
             return (
               <ContentList
+                key={item.name}
                 main={item.time}
                 href={item.href}
                 name={item.name}
@@ -73,6 +75,14 @@ export default function Home() {
               );
             })}
         </div>
+      </div>
+
+      <div>
+        <div className="home-title">
+          <Gamepad2 size={20} />
+          PSN
+        </div>
+        <Psn />
       </div>
     </div>
   );

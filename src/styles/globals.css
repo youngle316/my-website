@@ -20,6 +20,10 @@
   .home-title {
     @apply mb-2 mt-10 flex items-center gap-1;
   }
+
+  .trophies {
+    @apply flex flex-1 flex-col items-center justify-between
+  }
 }
 
 .frosted-noise::before {
