@@ -4,8 +4,8 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 import ThemeProvider from '@/provider/ThemeProvider';
 import Analytic from './Analytics';
-import localFont from '@next/font/local';
 import type { Metadata } from 'next';
+import { sansFont } from '@/lib/font';
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const ogImage =
@@ -39,31 +39,13 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
   };
 }
 
-const inter = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Inter-Light.otf',
-      weight: '300'
-    },
-    {
-      path: '../../public/fonts/Inter-Regular.otf',
-      weight: '400'
-    },
-    {
-      path: '../../public/fonts/Inter-Bold.otf',
-      weight: '500'
-    }
-  ],
-  variable: '--font-inter'
-});
-
 export default async function RootLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh" className={`${inter.variable} font-sans`}>
+    <html lang="zh" className={`${sansFont.variable} m-0 h-full p-0 font-sans antialiased`}>
       <body className="relative bg-stone-50 text-stone-800 dark:bg-stone-900 dark:text-stone-300">
         <ThemeProvider>
           <Analytic />
