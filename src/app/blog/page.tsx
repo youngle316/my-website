@@ -1,8 +1,8 @@
 import Article from '@/components/blog/Article';
 
 export const metadata = {
-  title: 'YoungLe Blog',
-  description: 'YoungLe Blog Total Posts'
+  title: '我的文章',
+  description: '我的全部文章'
 };
 
 function Blog() {
