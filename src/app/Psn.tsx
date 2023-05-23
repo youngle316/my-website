@@ -1,41 +1,39 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import type { UserTitlesResponse, TrophyTitle } from "psn-api";
+import React from 'react';
+import type { UserTitlesResponse, TrophyTitle } from 'psn-api';
 import Image from 'next/image';
+import useSWR from 'swr';
 
-function Psn() {
-  const [trophyList, setTrophyList] = useState<UserTitlesResponse>({
-    trophyTitles: [],
-    totalItemCount: 0
+async function fetcher<JSON = any>(
+  input: RequestInfo,
+  init?: RequestInit
+): Promise<JSON> {
+  const res = await fetch(input, init);
+  return res.json();
+}
+
+export default function Psn() {
+  const { data } = useSWR<UserTitlesResponse>('/api/psn/trophyList', fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false
   });
-  const [totalTrophies, setTotalTrophies] = useState({
+
+  const trophyList = data || { trophyTitles: [] };
+  const totalTrophies = {
     bronze: 0,
     silver: 0,
     gold: 0,
     platinum: 0
+  };
+  data?.trophyTitles.forEach((title: TrophyTitle) => {
+    totalTrophies.bronze += title.earnedTrophies.bronze;
+    totalTrophies.silver += title.earnedTrophies.silver;
+    totalTrophies.gold += title.earnedTrophies.gold;
+    totalTrophies.platinum += title.earnedTrophies.platinum;
   });
 
-  useEffect(() => {
-    fetch(`/api/psn/trophyList`).then(async (res) => {
-      const data = await res.json();
-      setTrophyList(data);
-      const trophies = {
-        bronze: 0,
-        silver: 0,
-        gold: 0,
-        platinum: 0
-      };
-      data.trophyTitles.forEach((title: TrophyTitle) => {
-        trophies.bronze += title.earnedTrophies.bronze;
-        trophies.silver += title.earnedTrophies.silver;
-        trophies.gold += title.earnedTrophies.gold;
-        trophies.platinum += title.earnedTrophies.platinum;
-      });
-      setTotalTrophies(trophies);
-    });
-  }),
-    [];
   return (
     <div>
       {trophyList.trophyTitles.length > 0 && (
@@ -86,8 +84,6 @@ function Psn() {
     </div>
   );
 }
-
-export default Psn;
 
 const Trophies = ({
   num,
