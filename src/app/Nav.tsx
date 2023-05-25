@@ -3,14 +3,9 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Fan, Library, HandMetal, X, ChevronDown } from 'lucide-react';
+import { X, ChevronDown } from 'lucide-react';
 import { Popover } from '@headlessui/react';
-
-const links = [
-  { href: '/', label: '主页', icon: Fan },
-  { href: '/blog', label: '文章', icon: Library },
-  { href: '/weekly', label: '周刊', icon: HandMetal }
-];
+import links from '@/lib/navLinks';
 
 function Nav() {
   const pathname = usePathname();
@@ -79,7 +74,12 @@ function Nav() {
                   }`}
                   href={href}
                 >
-                  <div className={`flex items-center gap-1 ${!isActive && 'hover:text-violet-600/50 dark:hover:text-violet-400'} `}>
+                  <div
+                    className={`flex items-center gap-1 ${
+                      !isActive &&
+                      'hover:text-violet-600/50 dark:hover:text-violet-400'
+                    } `}
+                  >
                     <Icon className="h-4 w-4" />
                     {label}
                   </div>

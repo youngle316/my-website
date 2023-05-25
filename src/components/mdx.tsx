@@ -4,6 +4,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import { ArrowUpRight } from 'lucide-react';
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -25,8 +26,11 @@ const CustomLink = (props: any) => {
       target="_blank"
       rel="noopener noreferrer"
       {...props}
-      className="innerLink"
-    />
+      className="innerLink gap-1 font-semibold text-violet-600 hover:no-underline dark:text-violet-400"
+    >
+      {props.children}
+      <ArrowUpRight size={16} />
+    </a>
   );
 };
 
@@ -113,7 +117,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <article className="prose-quoteless prose prose-neutral dark:prose-invert text-zinc-600 dark:text-zinc-400">
+    <article className="prose-quoteless prose prose-neutral text-zinc-600 dark:prose-invert dark:text-zinc-400">
       <Component components={{ ...components }} />
     </article>
   );
