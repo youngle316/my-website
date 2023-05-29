@@ -1,5 +1,4 @@
 import { allBlogs } from 'contentlayer/generated';
-import Link from 'next/link';
 import ContentList from '../ContentList';
 
 type BlogProps = {
@@ -38,7 +37,7 @@ function Blog({ category }: BlogProps) {
             <>
               {getBlogs(year).length > 0 && (
                 <>
-                  <div className='home-title'>{year}</div>
+                  <div className="home-title">{year}</div>
                   <ArticleYear category={category} year={year} />
                 </>
               )}
@@ -76,18 +75,6 @@ const ArticleYear = ({ category, year }: BlogProps) => {
             name={post.title}
             des={post.des}
           />
-          // <div className="flex flex-col gap-2 md:flex-row md:gap-12">
-          //   <div className="tabular-nums text-stone-400">
-          //     {getDate(post.publishedAt)}
-          //   </div>
-          //   <Link
-          //     key={post.slug}
-          //     href={`/${category}/${post.slug}`}
-          //     className="font-normal underline-offset-4 hover:text-[#006ace] hover:underline dark:hover:text-[#52a9ff]"
-          //   >
-          //     <div>{post.title}</div>
-          //   </Link>
-          // </div>
         ))}
     </div>
   );
