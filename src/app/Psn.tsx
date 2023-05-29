@@ -38,7 +38,7 @@ export default function Psn() {
     <div>
       {trophyList.trophyTitles.length > 0 && (
         <>
-          <div className="text-sm text-zinc-400">最近游玩</div>
+          <div className="text-sm text-zinc-400">最近游玩 🎮</div>
           <div className="flex justify-center">
             <Image
               src={trophyList.trophyTitles[0].trophyTitleIconUrl}
